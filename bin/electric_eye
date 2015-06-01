@@ -18,9 +18,14 @@ class App
 
   # Declare command-line interface here
 
-  # description "one line description of your app"
+  description "Network Video Recorder"
+
   #
   # Accept flags via:
+  on("-a CAMERA URL", "--add", "Add a camera") do |camera, url|
+    #add(camera, url)
+    info "Camera added"
+  end
   # on("--flag VAL","Some flag")
   # options[flag] will contain VAL
   #
