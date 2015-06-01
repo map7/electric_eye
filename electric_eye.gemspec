@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = ElectricEye::VERSION
   spec.authors       = ["Michael Pope"]
   spec.email         = ["michael@dtcorp.com.au"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
+  spec.summary       = %q{A network video recorder for multiple IP cameras.}
   spec.description   = %q{TODO: Write a longer description. Optional.}
   spec.homepage      = ""
   spec.license       = "mit"
