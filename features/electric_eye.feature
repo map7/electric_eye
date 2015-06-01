@@ -13,7 +13,7 @@ Feature: Electric Eye
 
   Scenario: Add camera
     Given I have a camera called "Reception"
-    When I successfully run `electric_eye -a -c Reception --url rtsp://user:passwd@192.168.0.100/live.sdp`
+    When I successfully run `electric_eye -a Reception rtsp://user:passwd@192.168.0.100/live.sdp`
     Then the exit status should be 0
     And we should have a directory called "~/.electric_eye"
     And we should have a file called "~/.electric_eye/config.yml"
