@@ -15,18 +15,32 @@ class App
     # the options Hash
     puts options
 
+    dir = check_dir
+    file = "#{dir}/config.yml"
+    
+    if File.exist?(file)
+      @config = Construct.load File.read(file)
+    else
+      @config = Construct.new
+      @config.cameras = []
+    end
+    
     if options[:a]
-      dir = "#{ENV['HOME']}/.electric_eye"
-      unless Dir.exist?(dir)
-        Dir.mkdir(dir)
-      end
-      
-      File.open("#{dir}/config.yml", 'w'){ |f| f.write "" } # Store
-      
+      @config.cameras.push({name: options[:camera], url: options[:url]})
+      File.open(file, 'w'){ |f| f.write @config.to_yaml } # Store
       info "Camera added"
     end
   end
 
+  # Check the directory and if it doesn't exist create it.
+  def self.check_dir
+    dir = "#{ENV['HOME']}/.electric_eye"
+    unless Dir.exist?(dir)
+      Dir.mkdir(dir)
+    end
+    dir
+  end
+  
   # supplemental methods here
 
   # Declare command-line interface here
@@ -36,7 +50,7 @@ class App
   #
   # Accept flags via:
   on("-a", "--add", "Add a camera") 
-  on("--camera CAMERA", "Name of camera") 
+  on("-c", "--camera CAMERA", "Name of camera") 
   on("--url URL", "URL address of camera includes user/passwd") 
   # on("--flag VAL","Some flag")
   # options[flag] will contain VAL
