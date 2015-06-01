@@ -2,6 +2,7 @@
 
 require 'optparse'
 require 'methadone'
+require 'construct'
 require 'electric_eye.rb'
 
 class App
@@ -12,6 +13,18 @@ class App
     # your program code here
     # You can access CLI options via
     # the options Hash
+    puts options
+
+    if options[:a]
+      dir = "#{ENV['HOME']}/.electric_eye"
+      unless Dir.exist?(dir)
+        Dir.mkdir(dir)
+      end
+      
+      File.open("#{dir}/config.yml", 'w'){ |f| f.write "" } # Store
+      
+      info "Camera added"
+    end
   end
 
   # supplemental methods here
@@ -22,10 +35,9 @@ class App
 
   #
   # Accept flags via:
-  on("-a CAMERA URL", "--add", "Add a camera") do |camera, url|
-    #add(camera, url)
-    info "Camera added"
-  end
+  on("-a", "--add", "Add a camera") 
+  on("--camera CAMERA", "Name of camera") 
+  on("--url URL", "URL address of camera includes user/passwd") 
   # on("--flag VAL","Some flag")
   # options[flag] will contain VAL
   #
