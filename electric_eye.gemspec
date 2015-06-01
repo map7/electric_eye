@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Michael Pope"]
   spec.email         = ["michael@dtcorp.com.au"]
   spec.summary       = %q{A network video recorder for multiple IP cameras.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.description   = %q{}
   spec.homepage      = ""
   spec.license       = "mit"
 

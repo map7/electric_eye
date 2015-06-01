@@ -76,6 +76,11 @@ Stop all recordings
 
     electric_eye stop
 
+Usage in development mode
+
+    bundle exec bin/electric_eye -h
+
+
 ## Contributing
 
 1. Fork it ( https://github.com/map7/electric_eye/fork )
