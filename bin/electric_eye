@@ -15,7 +15,7 @@ class App
     # the options Hash
 
     # Initialise variables
-    dir = check_dir
+    dir = ElectricEye.check_dir
     file = "#{dir}/config.yml"
 
     # Check if we have a config file
@@ -44,14 +44,7 @@ class App
     exit 0
   end
   
-  # Check the directory and if it doesn't exist create it.
-  def self.check_dir
-    dir = "#{ENV['HOME']}/.electric_eye"
-    unless Dir.exist?(dir)
-      Dir.mkdir(dir)
-    end
-    dir
-  end
+
   
   # supplemental methods here
 
