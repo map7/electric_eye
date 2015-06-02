@@ -28,4 +28,12 @@ describe "save" do
       save(@config)
     end
   end
+
+  context "config isn't set" do
+    it "writes the config file" do
+      expect(File).to receive(:open).once
+      save(nil)
+    end
+  end
 end
+

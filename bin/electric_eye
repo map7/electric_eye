@@ -17,7 +17,20 @@ class App
 
     # Check that the directory exists
     check_dir
+    check_config
 
+    
+    # Add a camera
+    if options[:a]
+      add_camera(camera,url)
+    elsif options[:r]
+      remove_camera(camera)
+    end
+    
+    exit 0
+  end
+
+  def self.check_config
     # Check if we have a config CONFIG_FILE
     if File.exist?(CONFIG_FILE)
       @config = Construct.load File.read(CONFIG_FILE)
@@ -25,26 +38,22 @@ class App
       @config = Construct.new
       @config.cameras = []
     end
-    
-    # Add a camera
-    if options[:a]
-      @config.cameras.push({name: camera, url: url})
-      save(@config)
-      info "Camera added"
-
-    elsif options[:r]
-      record = @config.cameras.bsearch{ |c| c[:name] == camera }
-      if record
-        @config.cameras.delete(record)
-        save(@config)
-      end
-      info "Camera removed"
-    end
-    
-    exit 0
   end
   
+  def self.add_camera(camera,url)
+    @config.cameras.push({name: camera, url: url})
+    save(@config)
+    info "Camera added"
+  end
 
+  def self.remove_camera(camera)
+    record = @config.cameras.bsearch{ |c| c[:name] == camera }
+    if record
+      @config.cameras.delete(record)
+      save(@config)
+    end
+    info "Camera removed"
+  end
   
   # supplemental methods here
 
