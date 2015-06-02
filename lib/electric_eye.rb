@@ -5,7 +5,7 @@ module ElectricEye
 
   # Check the directory and if it doesn't exist create it.
   def check_dir
-    Dir.mkdir(DIR) unless Dir.exist?(DIR)
+    Dir.mkdir(CONFIG_DIR) unless Dir.exist?(CONFIG_DIR)
   end
 
   # Save the config file
