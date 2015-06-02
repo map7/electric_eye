@@ -7,7 +7,7 @@ describe "check_dir" do
       Dir.stub(:exist?).and_return(false)
       Dir.stub(:mkdir).and_return(true)
       expect(Dir).to receive(:mkdir).once.and_return(true)
-      check_dir
+      ConfigEye.check_dir
     end
   end
   
@@ -15,7 +15,7 @@ describe "check_dir" do
     it "doesn't make a directory" do
       Dir.stub(:exist?).and_return(true)
       expect(Dir).to receive(:mkdir).exactly(0)
-      check_dir
+      ConfigEye.check_dir
     end
   end
 end
@@ -25,14 +25,14 @@ describe "save" do
     it "writes the config file" do
       @config = double()
       expect(File).to receive(:open).once
-      save(@config)
+      ConfigEye.save(@config)
     end
   end
 
   context "config isn't set" do
     it "writes the config file" do
       expect(File).to receive(:open).once
-      save(nil)
+      ConfigEye.save(nil)
     end
   end
 end

@@ -26,7 +26,7 @@ class App
 
   def self.check_config
     # Check if we have a config CONFIG_FILE
-    check_dir
+    ConfigEye.check_dir
     if File.exist?(CONFIG_FILE)
       @config = Construct.load File.read(CONFIG_FILE)
     else
@@ -37,7 +37,7 @@ class App
   
   def self.add_camera(camera,url)
     @config.cameras.push({name: camera, url: url})
-    save(@config)
+    ConfigEye.save(@config)
     info "Camera added"
   end
 
@@ -45,7 +45,7 @@ class App
     record = @config.cameras.bsearch{ |c| c[:name] == camera }
     if record
       @config.cameras.delete(record)
-      save(@config)
+      ConfigEye.save(@config)
     end
     info "Camera removed"
   end
