@@ -15,9 +15,8 @@ class App
     # You can access CLI options via
     # the options Hash
 
-    # Initialise variables
-    DIR = check_dir
-    CONFIG_FILE = "#{DIR}/config.yml"
+    # Check that the directory exists
+    check_dir
 
     # Check if we have a config CONFIG_FILE
     if File.exist?(CONFIG_FILE)

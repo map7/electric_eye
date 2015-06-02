@@ -12,10 +12,6 @@ describe "check_dir" do
       expect(Dir).to receive(:mkdir).once.and_return(true)
       check_dir
     end
-
-    it "should return the directory back" do
-      expect(check_dir).to_not equal(nil)
-    end
   end
   
   context "when config directory exists" do
@@ -26,10 +22,6 @@ describe "check_dir" do
     it "doesn't make a directory" do
       expect(Dir).to receive(:mkdir).exactly(0)
       check_dir
-    end
-
-    it "should return the directory back" do
-      expect(check_dir).to_not equal(nil)
     end
   end
 end

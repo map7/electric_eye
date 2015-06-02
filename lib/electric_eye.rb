@@ -1,12 +1,11 @@
 require "electric_eye/version"
+require "electric_eye/settings"
 
 module ElectricEye
 
   # Check the directory and if it doesn't exist create it.
   def check_dir
-    dir = "#{ENV['HOME']}/.electric_eye"
-    Dir.mkdir(dir) unless Dir.exist?(dir)
-    dir
+    Dir.mkdir(DIR) unless Dir.exist?(DIR)
   end
 
   # Save the config file
