@@ -9,13 +9,13 @@ describe "check_dir" do
     
     it "should make directory" do
       Dir.exist?(@dir).should == false
-      ElectricEye.check_dir
+      check_dir
       Dir.exist?(@dir).should == true
       Dir.rmdir(@dir)
     end
 
     it "should return the directory back" do
-      ElectricEye.check_dir.should == @dir      
+      check_dir.should == @dir      
     end
   end
 end
