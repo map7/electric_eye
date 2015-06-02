@@ -53,6 +53,6 @@ DEPENDENCIES
   bundler (~> 1.7)
   construct
   electric_eye!
-  rake
+  rake (~> 10.0)
   rdoc
   rspec (~> 2.99)
