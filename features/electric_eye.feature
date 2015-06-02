@@ -13,6 +13,9 @@ Feature: Electric Eye
     And the banner should document that this app's arguments are:
     | camera | which is optional |
     | url    | which is optional |
+    And the following options should be documented:
+    | --add    |
+    | --remove |
 
   Scenario: Add camera
     Given I have a camera called "Reception"
