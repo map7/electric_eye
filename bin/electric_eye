@@ -13,11 +13,12 @@ class App
     # your program code here
     # You can access CLI options via
     # the options Hash
-    puts options
 
+    # Initialise variables
     dir = check_dir
     file = "#{dir}/config.yml"
-    
+
+    # Check if we have a config file
     if File.exist?(file)
       @config = Construct.load File.read(file)
     else
@@ -25,13 +26,24 @@ class App
       @config.cameras = []
     end
     
+    # Add a camera
     if options[:a]
       @config.cameras.push({name: camera, url: url})
       File.open(file, 'w'){ |f| f.write @config.to_yaml } # Store
       info "Camera added"
-    end
-  end
 
+    elsif options[:r]
+      record = @config.cameras.bsearch{ |c| c[:name] == camera }
+      if record
+        @config.cameras.delete(record)
+        File.open(file, 'w'){ |f| f.write @config.to_yaml } # Store
+      end
+      info "Camera removed"
+    end
+    
+    exit 0
+  end
+  
   # Check the directory and if it doesn't exist create it.
   def self.check_dir
     dir = "#{ENV['HOME']}/.electric_eye"
@@ -50,6 +62,7 @@ class App
   #
   # Accept flags via:
   on("-a", "--add", "Add a camera") 
+  on("-r", "--remove", "Remove a camera") 
 
   # on("--flag VAL","Some flag")
   # options[flag] will contain VAL
