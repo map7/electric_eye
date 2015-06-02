@@ -12,4 +12,9 @@ module ElectricEye
     Dir.mkdir(dir) unless Dir.exist?(dir)
     dir
   end
+
+  # Save the config file
+  def save(file, config)
+    File.open(file, 'w'){ |f| f.write @config.to_yaml } # Store
+  end
 end

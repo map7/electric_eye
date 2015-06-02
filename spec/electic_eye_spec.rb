@@ -33,3 +33,16 @@ describe "check_dir" do
     end
   end
 end
+
+describe "save" do
+  context "config is set" do
+    before do
+      @config = Construct.new
+    end
+
+    it "writes the config file" do
+      expect(File).to receive(:open).once
+      save('config.yml', @config)
+    end
+  end
+end

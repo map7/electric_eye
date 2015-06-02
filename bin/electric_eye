@@ -30,14 +30,14 @@ class App
     # Add a camera
     if options[:a]
       @config.cameras.push({name: camera, url: url})
-      File.open(file, 'w'){ |f| f.write @config.to_yaml } # Store
+      save(file, @config)
       info "Camera added"
 
     elsif options[:r]
       record = @config.cameras.bsearch{ |c| c[:name] == camera }
       if record
         @config.cameras.delete(record)
-        File.open(file, 'w'){ |f| f.write @config.to_yaml } # Store
+        save(file, @config)
       end
       info "Camera removed"
     end
