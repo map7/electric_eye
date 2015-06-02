@@ -1,10 +1,6 @@
 require "electric_eye/version"
 
 module ElectricEye
-  # Your code goes here...
-  def foo
-    return false
-  end
 
   # Check the directory and if it doesn't exist create it.
   def check_dir
