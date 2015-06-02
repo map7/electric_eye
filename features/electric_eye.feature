@@ -10,6 +10,9 @@ Feature: Electric Eye
     And there should be a one line summary of what the app does
     And the banner should include the version
     And the banner should document that this app takes options
+    And the banner should document that this app's arguments are:
+    | camera | which is optional |
+    | url    | which is optional |
 
   Scenario: Add camera
     Given I have a camera called "Reception"
