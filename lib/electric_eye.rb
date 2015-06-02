@@ -7,7 +7,7 @@ module ElectricEye
   end
 
   # Check the directory and if it doesn't exist create it.
-  def self.check_dir
+  def check_dir
     dir = "#{ENV['HOME']}/.electric_eye"
     Dir.mkdir(dir) unless Dir.exist?(dir)
     dir

@@ -4,6 +4,7 @@ require 'optparse'
 require 'methadone'
 require 'construct'
 require 'electric_eye.rb'
+include ElectricEye
 
 class App
   include Methadone::Main
@@ -15,7 +16,7 @@ class App
     # the options Hash
 
     # Initialise variables
-    dir = ElectricEye.check_dir
+    dir = check_dir
     file = "#{dir}/config.yml"
 
     # Check if we have a config file
