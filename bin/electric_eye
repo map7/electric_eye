@@ -11,14 +11,8 @@ class App
   include Methadone::CLILogging
 
   main do |camera, url| # Add args you want: |like,so|
-    # your program code here
-    # You can access CLI options via
-    # the options Hash
-
     # Check that the directory exists
-    check_dir
     check_config
-
     
     # Add a camera
     if options[:a]
@@ -32,6 +26,7 @@ class App
 
   def self.check_config
     # Check if we have a config CONFIG_FILE
+    check_dir
     if File.exist?(CONFIG_FILE)
       @config = Construct.load File.read(CONFIG_FILE)
     else
