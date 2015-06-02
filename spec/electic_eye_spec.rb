@@ -34,7 +34,7 @@ describe "save" do
 
     it "writes the config file" do
       expect(File).to receive(:open).once
-      save('config.yml', @config)
+      save(@config)
     end
   end
 end

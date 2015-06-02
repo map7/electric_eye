@@ -9,7 +9,7 @@ module ElectricEye
   end
 
   # Save the config file
-  def save(file, config)
-    File.open(file, 'w'){ |f| f.write config.to_yaml } # Store
+  def save(config)
+    File.open(CONFIG_FILE, 'w'){ |f| f.write config.to_yaml } # Store
   end
 end

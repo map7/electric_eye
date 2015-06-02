@@ -29,14 +29,14 @@ class App
     # Add a camera
     if options[:a]
       @config.cameras.push({name: camera, url: url})
-      save(CONFIG_FILE, @config)
+      save(@config)
       info "Camera added"
 
     elsif options[:r]
       record = @config.cameras.bsearch{ |c| c[:name] == camera }
       if record
         @config.cameras.delete(record)
-        save(CONFIG_FILE, @config)
+        save(@config)
       end
       info "Camera removed"
     end
