@@ -21,5 +21,7 @@ module ElectricEye
       File.open(CONFIG_FILE, 'w'){ |f| f.write config.to_yaml } # Store
     end
 
+    # Add camera
+    
   end
 end
