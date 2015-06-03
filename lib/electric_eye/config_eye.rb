@@ -17,7 +17,7 @@ module ElectricEye
       if File.exist?(CONFIG_FILE)
         Construct.load File.read(CONFIG_FILE)
       else
-        Construct.new({cameras: []})
+        Construct.new({duration: 600, cameras: []})
       end
     end
 
@@ -41,6 +41,12 @@ module ElectricEye
         save
       end
       info "Camera removed"
+    end
+
+    # Set duration
+    def set_duration(seconds)
+      @config.duration = seconds
+      save
     end
 
     # Initialise the method.

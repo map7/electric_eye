@@ -119,6 +119,35 @@ describe "remove camera" do
       @configEye.remove_camera("Kitchen")
     end
   end
+end
 
-  
+describe "set_duration" do
+
+  context "when no duration has been set" do
+    before do
+      File.stub(:exist?).and_return(false)
+      @configEye = ConfigEye.new
+    end
+
+    it "returns the default of 600 seconds" do
+      expect(@configEye.config.duration).to equal(600)
+    end
+  end
+
+  context "when calling with -d 10" do
+    before do
+      ConfigEye.stub(:load).and_return(Construct.new({cameras: []}))
+      @configEye = ConfigEye.new
+    end
+
+    it "returns 10" do
+      @configEye.set_duration(10)
+      expect(@configEye.config.duration).to equal(10)
+    end
+
+    it "calls save" do
+      expect(@configEye).to receive(:save).once
+      @configEye.set_duration(10)
+    end
+  end
 end

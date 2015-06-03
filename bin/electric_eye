@@ -26,7 +26,8 @@ class App
 
   # Accept flags via:
   on("-a", "--add", "Add a camera") 
-  on("-r", "--remove", "Remove a camera") 
+  on("-r", "--remove", "Remove a camera")
+  on("-d", "--duration", "Set recording duration in seconds")
 
   # Arguments
   arg :camera, :optional

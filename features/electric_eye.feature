@@ -14,8 +14,9 @@ Feature: Electric Eye
     | camera | which is optional |
     | url    | which is optional |
     And the following options should be documented:
-    | --add    |
-    | --remove |
+    | --add      |
+    | --remove   |
+    | --duration |
 
   Scenario: Add camera
     When I successfully run `electric_eye -a Reception rtsp://user:passwd@192.168.0.100/live.sdp`
@@ -29,7 +30,12 @@ Feature: Electric Eye
     Given I have a camera called "Reception"
     When I successfully run `electric_eye -r Reception`
     Then the exit status should be 0
-    And we should have a directory called "~/.electric_eye"
-    And we should have a file called "~/.electric_eye/config.yml"
     And within the file "~/.electric_eye/config.yml" we should no cameras
     And the stdout should contain "Camera removed"
+
+  Scenario: Set duration
+    When I successfully run `electric_eye -d 10`
+    Then the exit status should be 0
+    And within the file "~/.electric_eye/config.yml" we should have the duration "10"
+    And the stdout should contain "duration set to 10 seconds"
+
