@@ -30,7 +30,7 @@ module ElectricEye
     def self.add_camera(camera, url)
       @config = load
       @config.cameras.push({name: camera, url: url})
-      ConfigEye.save(@config)
+      save(@config)
       info "Camera added"
       @config
     end
