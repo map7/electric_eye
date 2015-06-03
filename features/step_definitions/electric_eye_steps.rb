@@ -27,10 +27,10 @@ Then(/^within the file "([^"]*)" we should have the camera "([^"]*)"$/) do |file
   expect(@config.cameras.first[:name] == camera).to equal(true)
 end
 
-Then(/^within the file "([^"]*)" we should have the duration "([^"]*)"$/) do |arg1, arg2|
+Then(/^within the file "([^"]*)" we should have the duration "([^"]*)"$/) do |file, duration|
   config_file = File.expand_path(file) # Expand ~ to ENV["HOME"]
   @config = Construct.load File.read(config_file)
-  expect(@config.duration == 10).to equal(true)
+  expect(@config.duration == duration.to_i).to equal(true)
 end
 
 Then(/^within the file "([^"]*)" we should no cameras$/) do |file|

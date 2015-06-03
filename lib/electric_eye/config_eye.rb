@@ -45,8 +45,9 @@ module ElectricEye
 
     # Set duration
     def set_duration(seconds)
-      @config.duration = seconds
+      @config.duration = seconds.to_i
       save
+      info "Duration set to #{seconds} seconds"
     end
 
     # Initialise the method.

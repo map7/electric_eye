@@ -37,5 +37,5 @@ Feature: Electric Eye
     When I successfully run `electric_eye -d 10`
     Then the exit status should be 0
     And within the file "~/.electric_eye/config.yml" we should have the duration "10"
-    And the stdout should contain "duration set to 10 seconds"
+    And the stdout should contain "Duration set to 10 seconds"
 

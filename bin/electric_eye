@@ -16,7 +16,10 @@ class App
     if options[:a]              # Add camera
       @configEye.add_camera(camera,url) 
     elsif options[:r]           # Remove camera
-      @configEye.remove_camera(camera)            
+      @configEye.remove_camera(camera)
+    elsif options[:d]
+      puts options
+      @configEye.set_duration(options[:duration])
     end
     
     exit 0
@@ -27,7 +30,7 @@ class App
   # Accept flags via:
   on("-a", "--add", "Add a camera") 
   on("-r", "--remove", "Remove a camera")
-  on("-d", "--duration", "Set recording duration in seconds")
+  on("-d", "--duration SECONDS", "Set recording duration in seconds")
 
   # Arguments
   arg :camera, :optional
