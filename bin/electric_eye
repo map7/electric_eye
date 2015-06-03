@@ -21,23 +21,9 @@ class App
     
     exit 0
   end
-
-  # def self.remove_camera(camera)
-  #   record = @config.cameras.bsearch{ |c| c[:name] == camera }
-  #   if record
-  #     @config.cameras.delete(record)
-  #     ConfigEye.save(@config)
-  #   end
-  #   info "Camera removed"
-  # end
   
-  # supplemental methods here
-
-  # Declare command-line interface here
-
   description "Network Video Recorder"
 
-  #
   # Accept flags via:
   on("-a", "--add", "Add a camera") 
   on("-r", "--remove", "Remove a camera") 
