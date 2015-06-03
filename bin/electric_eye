@@ -12,22 +12,16 @@ class App
 
   main do |camera, url| # Add args you want: |like,so|
     # Check that the directory exists
-    @config = ConfigEye.check_config
+    @config = ConfigEye.load
     
     # Add a camera
     if options[:a]
-      add_camera(camera,url)
+      ConfigEye.add_camera(camera,url)
     elsif options[:r]
       remove_camera(camera)
     end
     
     exit 0
-  end
-  
-  def self.add_camera(camera,url)
-    @config.cameras.push({name: camera, url: url})
-    ConfigEye.save(@config)
-    info "Camera added"
   end
 
   def self.remove_camera(camera)

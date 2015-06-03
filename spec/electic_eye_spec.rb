@@ -40,13 +40,13 @@ end
 describe "check config" do
   it "checks the directory" do
     expect(ConfigEye).to receive(:check_dir).once
-    ConfigEye.check_config
+    ConfigEye.load
   end
   
   context "exists" do
     it "returns a construct object" do
       File.stub(:exist?).and_return(true)
-      config = ConfigEye.check_config      
+      config = ConfigEye.load      
       expect(config.class).to equal(Construct)      
     end
   end
@@ -54,7 +54,7 @@ describe "check config" do
   context "doesn't exist" do
     before do
       File.stub(:exist?).and_return(false)
-      @config = ConfigEye.check_config      
+      @config = ConfigEye.load      
     end
 
     it "returns a construct object" do
@@ -64,5 +64,21 @@ describe "check config" do
     it "includes a cameras array" do
       expect(@config.cameras.class).to equal(Array)      
     end
+  end
+end
+
+describe "add camera" do
+  before do
+    ConfigEye.stub(:load).and_return(Construct.new({cameras: []}))
+  end
+  
+  it "adds camera to array" do
+    @config = ConfigEye.add_camera("Reception", "http://user:pass@my.camera.org/live2.sdp")
+    expect(@config.cameras.length).to equal(1)
+  end
+
+  it "calls save" do
+    expect(ConfigEye).to receive(:save).once
+    @config = ConfigEye.add_camera("Reception", "http://user:pass@my.camera.org/live2.sdp")
   end
 end
