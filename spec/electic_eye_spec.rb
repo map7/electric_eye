@@ -1,6 +1,17 @@
 require ('spec_helper.rb')
 include ElectricEye
 
+describe "initialize" do
+  before do
+    ConfigEye.stub(:load).and_return(Construct.new({cameras: [{name: "Reception"}]}))
+  end
+
+  it "sets config" do
+    configEye = ConfigEye.new
+    expect(configEye.config.cameras.length).to equal(1)
+  end
+end
+
 describe "check_dir" do
   context "when config directory does not exists" do
     it "makes a directory" do
@@ -80,5 +91,23 @@ describe "add camera" do
   it "calls save" do
     expect(ConfigEye).to receive(:save).once
     @config = ConfigEye.add_camera("Reception", "http://user:pass@my.camera.org/live2.sdp")
+  end
+end
+
+describe "remove camera" do
+  before do
+    ConfigEye.stub(:load).and_return(Construct.new({cameras: [{name: "Reception"}]}))
+  end
+
+  it "removes camera from array" do
+    @config = ConfigEye.load
+    expect(@config.cameras.length).to equal(1)
+    @config = ConfigEye.remove_camera("Reception")
+    expect(@config.cameras.length).to equal(0)
+  end
+
+  it "calls save" do
+    expect(ConfigEye).to receive(:save).once
+    ConfigEye.remove_camera("Reception")
   end
 end

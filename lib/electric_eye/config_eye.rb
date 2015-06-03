@@ -34,5 +34,21 @@ module ElectricEye
       info "Camera added"
       @config
     end
+
+    def self.remove_camera(camera)
+      @config = load
+      record = @config.cameras.bsearch{ |c| c[:name] == camera }
+  #   if record
+      @config.cameras.delete(record)
+      ConfigEye.save(@config)
+  #   end
+    info "Camera removed"
+      @config
+    end
+
+    attr_reader :config
+    def initialize
+      @config = ConfigEye.load
+    end
   end
 end

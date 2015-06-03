@@ -16,20 +16,20 @@ class App
     if options[:a]              # Add camera
       ConfigEye.add_camera(camera,url) 
     elsif options[:r]           # Remove camera
-      remove_camera(camera)            
+      ConfigEye.remove_camera(camera)            
     end
     
     exit 0
   end
 
-  def self.remove_camera(camera)
-    record = @config.cameras.bsearch{ |c| c[:name] == camera }
-    if record
-      @config.cameras.delete(record)
-      ConfigEye.save(@config)
-    end
-    info "Camera removed"
-  end
+  # def self.remove_camera(camera)
+  #   record = @config.cameras.bsearch{ |c| c[:name] == camera }
+  #   if record
+  #     @config.cameras.delete(record)
+  #     ConfigEye.save(@config)
+  #   end
+  #   info "Camera removed"
+  # end
   
   # supplemental methods here
 
