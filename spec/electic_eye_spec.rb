@@ -36,7 +36,7 @@ describe "save" do
     it "writes the config file" do
       @configEye = ConfigEye.new
       expect(File).to receive(:open).once
-      @configEye.save(@configEye)
+      @configEye.save
     end
   end
 end
