@@ -22,14 +22,14 @@ module ElectricEye
     end
 
     # Save the config file
-    def self.save(config)
+    def save(config)
       File.open(CONFIG_FILE, 'w'){ |f| f.write config.to_yaml } # Store
     end
 
     # Add camera
     def add_camera(camera, url)
       @config.cameras.push({name: camera, url: url})
-      ConfigEye.save(@config)
+      save(@config)
       info "Camera added"
       @config
     end
@@ -39,15 +39,16 @@ module ElectricEye
       record = @config.cameras.bsearch{ |c| c[:name] == camera }
       if record
         @config.cameras.delete(record)
-        ConfigEye.save(@config)
+        save(@config)
       end
       info "Camera removed"
       @config
     end
 
+    # Initialise the method.
     attr_reader :config
     def initialize
-      @config = ConfigEye.load
+      @config = ConfigEye.load 
     end
   end
 end

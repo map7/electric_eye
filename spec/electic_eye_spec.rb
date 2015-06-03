@@ -34,16 +34,9 @@ end
 describe "save" do
   context "config is set" do
     it "writes the config file" do
-      @configEye = double()
+      @configEye = ConfigEye.new
       expect(File).to receive(:open).once
-      ConfigEye.save(@configEye)
-    end
-  end
-
-  context "config isn't set" do
-    it "writes the config file" do
-      expect(File).to receive(:open).once
-      ConfigEye.save(nil)
+      @configEye.save(@configEye)
     end
   end
 end
@@ -90,7 +83,7 @@ describe "add camera" do
   end
 
   it "calls save" do
-    expect(ConfigEye).to receive(:save).once
+    expect(@configEye).to receive(:save).once
     @configEye.add_camera("Reception", "http://user:pass@my.camera.org/live2.sdp")
   end
 end
@@ -109,7 +102,7 @@ describe "remove camera" do
     end
 
     it "calls save" do
-      expect(ConfigEye).to receive(:save).once
+      expect(@configEye).to receive(:save).once
       @configEye.remove_camera("Reception")
     end
   end
