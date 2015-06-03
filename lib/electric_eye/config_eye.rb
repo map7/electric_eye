@@ -22,7 +22,7 @@ module ElectricEye
     end
 
     # Save the config file
-    def save
+    def save()
       File.open(CONFIG_FILE, 'w'){ |f| f.write config.to_yaml } # Store
     end
 
@@ -31,7 +31,6 @@ module ElectricEye
       @config.cameras.push({name: camera, url: url})
       save
       info "Camera added"
-      @config
     end
 
     # Remove camera
@@ -42,7 +41,6 @@ module ElectricEye
         save
       end
       info "Camera removed"
-      @config
     end
 
     # Initialise the method.
