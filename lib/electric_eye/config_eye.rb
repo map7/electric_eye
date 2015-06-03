@@ -38,11 +38,11 @@ module ElectricEye
     def self.remove_camera(camera)
       @config = load
       record = @config.cameras.bsearch{ |c| c[:name] == camera }
-  #   if record
-      @config.cameras.delete(record)
-      ConfigEye.save(@config)
-  #   end
-    info "Camera removed"
+      if record
+        @config.cameras.delete(record)
+        ConfigEye.save(@config)
+      end
+      info "Camera removed"
       @config
     end
 
