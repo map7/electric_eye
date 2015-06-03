@@ -34,9 +34,9 @@ end
 describe "save" do
   context "config is set" do
     it "writes the config file" do
-      @config = double()
+      @configEye = double()
       expect(File).to receive(:open).once
-      ConfigEye.save(@config)
+      ConfigEye.save(@configEye)
     end
   end
 
@@ -65,15 +65,15 @@ describe "check config" do
   context "doesn't exist" do
     before do
       File.stub(:exist?).and_return(false)
-      @config = ConfigEye.load      
+      @configEye = ConfigEye.load      
     end
 
     it "returns a construct object" do
-      expect(@config.class).to equal(Construct)      
+      expect(@configEye.class).to equal(Construct)      
     end
 
     it "includes a cameras array" do
-      expect(@config.cameras.class).to equal(Array)      
+      expect(@configEye.cameras.class).to equal(Array)      
     end
   end
 end
@@ -81,49 +81,49 @@ end
 describe "add camera" do
   before do
     ConfigEye.stub(:load).and_return(Construct.new({cameras: []}))
+    @configEye = ConfigEye.new
   end
   
   it "adds camera to array" do
-    @config = ConfigEye.add_camera("Reception", "http://user:pass@my.camera.org/live2.sdp")
-    expect(@config.cameras.length).to equal(1)
+    @configEye.add_camera("Reception", "http://user:pass@my.camera.org/live2.sdp")
+    expect(@configEye.config.cameras.length).to equal(1)
   end
 
   it "calls save" do
     expect(ConfigEye).to receive(:save).once
-    @config = ConfigEye.add_camera("Reception", "http://user:pass@my.camera.org/live2.sdp")
+    @configEye.add_camera("Reception", "http://user:pass@my.camera.org/live2.sdp")
   end
 end
 
 describe "remove camera" do
   before do
     ConfigEye.stub(:load).and_return(Construct.new({cameras: [{name: "Reception"}]}))
+    @configEye = ConfigEye.new
   end
 
   context "when camera exists" do
     it "removes camera from array" do
-      @config = ConfigEye.load
-      expect(@config.cameras.length).to equal(1)
-      @config = ConfigEye.remove_camera("Reception")
-      expect(@config.cameras.length).to equal(0)
+      expect(@configEye.config.cameras.length).to equal(1)
+      @configEye.remove_camera("Reception")
+      expect(@configEye.config.cameras.length).to equal(0)
     end
 
     it "calls save" do
       expect(ConfigEye).to receive(:save).once
-      ConfigEye.remove_camera("Reception")
+      @configEye.remove_camera("Reception")
     end
   end
 
   context "when camera doesn't exist" do
     it "keeps the camera array the same size" do
-      @config = ConfigEye.load
-      expect(@config.cameras.length).to equal(1)
-      @config = ConfigEye.remove_camera("Kitchen")
-      expect(@config.cameras.length).to equal(1)
+      expect(@configEye.config.cameras.length).to equal(1)
+      @configEye.remove_camera("Kitchen")
+      expect(@configEye.config.cameras.length).to equal(1)
     end
 
     it "calls save" do
       expect(ConfigEye).to receive(:save).never
-      ConfigEye.remove_camera("Kitchen")
+      @configEye.remove_camera("Kitchen")
     end
   end
 

@@ -27,17 +27,15 @@ module ElectricEye
     end
 
     # Add camera
-    def self.add_camera(camera, url)
-      @config = load
+    def add_camera(camera, url)
       @config.cameras.push({name: camera, url: url})
-      save(@config)
+      ConfigEye.save(@config)
       info "Camera added"
       @config
     end
 
     # Remove camera
-    def self.remove_camera(camera)
-      @config = load
+    def remove_camera(camera)
       record = @config.cameras.bsearch{ |c| c[:name] == camera }
       if record
         @config.cameras.delete(record)
