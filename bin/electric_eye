@@ -18,7 +18,6 @@ class App
     elsif options[:r]           # Remove camera
       @configEye.remove_camera(camera)
     elsif options[:d]
-      puts options
       @configEye.set_duration(options[:duration])
     end
     
