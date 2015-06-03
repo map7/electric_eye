@@ -28,24 +28,11 @@ class App
   on("-a", "--add", "Add a camera") 
   on("-r", "--remove", "Remove a camera") 
 
-  # on("--flag VAL","Some flag")
-  # options[flag] will contain VAL
-  #
-  # Specify switches via:
-  # on("--[no-]switch","Some switch")
-  #
-  # Or, just call OptionParser methods on opts
-  #
-  # Require an argument
-  # arg :some_arg 
-  #
-  # # Make an argument optional
-  # arg :optional_arg, :optional
+  # Arguments
   arg :camera, :optional
   arg :url, :optional
 
   version ElectricEye::VERSION
-
   use_log_level_option :toggle_debug_on_signal => 'USR1'
 
   go!
