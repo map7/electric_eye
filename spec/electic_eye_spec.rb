@@ -37,3 +37,32 @@ describe "save" do
   end
 end
 
+describe "check config" do
+  it "checks the directory" do
+    expect(ConfigEye).to receive(:check_dir).once
+    ConfigEye.check_config
+  end
+  
+  context "exists" do
+    it "returns a construct object" do
+      File.stub(:exist?).and_return(true)
+      config = ConfigEye.check_config      
+      expect(config.class).to equal(Construct)      
+    end
+  end
+  
+  context "doesn't exist" do
+    before do
+      File.stub(:exist?).and_return(false)
+      @config = ConfigEye.check_config      
+    end
+
+    it "returns a construct object" do
+      expect(@config.class).to equal(Construct)      
+    end
+
+    it "includes a cameras array" do
+      expect(@config.cameras.class).to equal(Array)      
+    end
+  end
+end

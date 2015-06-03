@@ -12,7 +12,7 @@ class App
 
   main do |camera, url| # Add args you want: |like,so|
     # Check that the directory exists
-    check_config
+    @config = ConfigEye.check_config
     
     # Add a camera
     if options[:a]
@@ -22,17 +22,6 @@ class App
     end
     
     exit 0
-  end
-
-  def self.check_config
-    # Check if we have a config CONFIG_FILE
-    ConfigEye.check_dir
-    if File.exist?(CONFIG_FILE)
-      @config = Construct.load File.read(CONFIG_FILE)
-    else
-      @config = Construct.new
-      @config.cameras = []
-    end
   end
   
   def self.add_camera(camera,url)
