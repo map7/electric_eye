@@ -24,10 +24,14 @@ class App
     elsif options[:p]           # Set path
       @configEye.set_path(options[:path]) 
     elsif options[:s]           # Start recording
-      
+      record
     end
     
     exit 0
+  end
+
+  def self.record
+    info "Cameras recording"
   end
   
   description "Network Video Recorder"
