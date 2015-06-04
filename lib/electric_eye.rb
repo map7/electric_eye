@@ -4,9 +4,7 @@ require "electric_eye/config_eye"
 
 module ElectricEye
   def store_pids(pids = [])
-    File.open("/tmp/electric_eye.pid", "w") do |file|
-      file.write pids.join(" ")
-    end
+    File.open("/tmp/electric_eye.pid", "w") { |file| file.write pids.join(" ") }
   end
 
   def record
