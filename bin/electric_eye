@@ -23,6 +23,8 @@ class App
       @configEye.set_duration(options[:duration]) 
     elsif options[:p]           # Set path
       @configEye.set_path(options[:path]) 
+    elsif options[:s]           # Start recording
+      
     end
     
     exit 0
@@ -36,6 +38,7 @@ class App
   on("-l", "--list", "List cameras")
   on("-d", "--duration SECONDS", "Set recording duration in seconds")
   on("-p", "--path DIR", "Set recordings path")
+  on("-s", "--start", "Start recordings")
 
   # Arguments
   arg :camera, :optional
