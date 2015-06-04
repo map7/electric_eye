@@ -1,4 +1,5 @@
 require 'methadone'
+require 'fileutils'
 
 module ElectricEye
   class Record

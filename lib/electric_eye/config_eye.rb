@@ -1,4 +1,5 @@
 require 'methadone'
+require 'fileutils'
 require 'table_print'
 
 module ElectricEye
