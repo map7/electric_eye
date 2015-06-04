@@ -1,17 +1,18 @@
 require ('spec_helper.rb')
 
 describe "record" do
+  include FakeFS::SpecHelpers
+
   before do
-    @record = Record.new
+    @configEye = ConfigEye.new
+    @configEye.add_camera("Reception", "http://user:pass@my.camera.org/live2.sdp")
+    @record = Record.new(@configEye)
   end
 
   describe "store_pids" do
-    include FakeFS::SpecHelpers
-
     before do
       @file = "/tmp/electric_eye.pid"
-      FileUtils.mkdir("/tmp")
-      ConfigEye.stub(:load).and_return(Construct.new({cameras: [{name: "Reception"}]}))
+      ConfigEye.stub(:load).and_return(Construct.new({path: "~/recordings", cameras: [{name: "Reception"}]}))
     end
 
     it "creates a file #{@file}" do
@@ -27,12 +28,8 @@ describe "record" do
   end
 
   describe "record_path" do
-    include FakeFS::SpecHelpers
-
     before do
       Timecop.freeze(Time.local(2015,06,30,10,05,0))
-      @configEye = ConfigEye.new
-      @configEye.add_camera("Reception", "http://user:pass@my.camera.org/live2.sdp")
     end
 
     after do
@@ -40,7 +37,7 @@ describe "record" do
     end
     
     it "returns a full path with todays date" do
-      path = @record.path(@configEye.config.path, @configEye.config.cameras.first)
+      path = @record.path(@configEye.config.cameras.first)
       expect(path).to include("~/recordings/Reception/20150630-1005-Reception.mjpeg")
     end
   end
