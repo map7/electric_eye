@@ -8,7 +8,8 @@ module ElectricEye
     
     # Check the directory and if it doesn't exist create it.
     def self.check_dir
-      Dir.mkdir(CONFIG_DIR) unless Dir.exist?(CONFIG_DIR)
+      puts "CHECK: #{CONFIG_DIR}"
+      FileUtils.mkdir_p(CONFIG_DIR) unless Dir.exist?(CONFIG_DIR)
     end
 
     # Check that the config file exists.
@@ -68,7 +69,8 @@ module ElectricEye
     # Initialise the method.
     attr_reader :config
     def initialize
-      @config = ConfigEye.load 
+      @config = ConfigEye.load
+      save
     end
   end
 end

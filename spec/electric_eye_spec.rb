@@ -22,6 +22,8 @@ describe "store_pids" do
 end
 
 describe "record_path" do
+  include FakeFS::SpecHelpers
+
   before do
     Timecop.freeze(Time.local(2015,06,30,10,05,0))
     @configEye = ConfigEye.new

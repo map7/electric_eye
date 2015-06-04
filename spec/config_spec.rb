@@ -2,64 +2,75 @@ require ('spec_helper.rb')
 include ElectricEye
 
 describe "initialize" do
-  before do
-    ConfigEye.stub(:load).and_return(Construct.new({cameras: [{name: "Reception"}]}))
-  end
+  include FakeFS::SpecHelpers
 
   it "sets config" do
     configEye = ConfigEye.new
-    expect(configEye.config.cameras.length).to equal(1)
+
+    # Check defaults
+    expect(configEye.config.duration).to equal(600)
+    expect(configEye.config.path).to include("~/recordings")
+    expect(configEye.config.cameras.length).to equal(0)
   end
 end
 
 describe "check_dir" do
+  include FakeFS::SpecHelpers
+  
   context "when config directory does not exists" do
     it "makes a directory" do
-      Dir.stub(:exist?).and_return(false)
-      Dir.stub(:mkdir).and_return(true)
-      expect(Dir).to receive(:mkdir).once.and_return(true)
       ConfigEye.check_dir
+      expect(File.directory?(CONFIG_DIR)).to equal(true)
     end
   end
   
   context "when config directory exists" do
     it "doesn't make a directory" do
-      Dir.stub(:exist?).and_return(true)
-      expect(Dir).to receive(:mkdir).exactly(0)
+      FileUtils.mkdir_p(CONFIG_DIR) # Create the directory
       ConfigEye.check_dir
+      expect(File.directory?(CONFIG_DIR)).to equal(true)
     end
   end
 end
 
 describe "save" do
+  include FakeFS::SpecHelpers
+
   context "config is set" do
     it "writes the config file" do
       @configEye = ConfigEye.new
-      expect(File).to receive(:open).once
       @configEye.save
+      expect(File.file?(CONFIG_FILE)).to equal(true)
     end
   end
 end
 
 describe "check config" do
+  include FakeFS::SpecHelpers
+
   it "checks the directory" do
-    expect(ConfigEye).to receive(:check_dir).once
     ConfigEye.load
+    expect(File.directory?(CONFIG_DIR)).to equal(true)
   end
   
-  context "exists" do
+  context "when exists" do
+    before do
+      # Create the file beforehand
+      @configEye = ConfigEye.new
+      @configEye.save
+    end
+    
     it "returns a construct object" do
-      File.stub(:exist?).and_return(true)
-      File.stub(:read).and_return("---\ncameras: []")
-      config = ConfigEye.load      
-      expect(config.class).to equal(Construct)      
+      expect(File.directory?(CONFIG_DIR)).to equal(true)
+      @config = ConfigEye.load      
+      expect(@config.class).to equal(Construct)      
     end
   end
   
   context "doesn't exist" do
     before do
-      File.stub(:exist?).and_return(false)
       @configEye = ConfigEye.load      
+      expect(File.file?(CONFIG_FILE)).to equal(false)
     end
 
     it "returns a construct object" do
@@ -75,8 +86,6 @@ end
 describe "add camera" do
   before do
     ConfigEye.stub(:load).and_return(Construct.new({cameras: []}))
-    File.stub(:read).and_return(true)
-    File.stub(:open).and_return(true)
     @configEye = ConfigEye.new
   end
   
@@ -94,8 +103,6 @@ end
 describe "remove camera" do
   before do
     ConfigEye.stub(:load).and_return(Construct.new({cameras: [{name: "Reception"}]}))
-    File.stub(:read).and_return(true)
-    File.stub(:open).and_return(true)
     @configEye = ConfigEye.new
   end
 
@@ -127,25 +134,19 @@ describe "remove camera" do
 end
 
 describe "set_duration" do
-  context "when no duration has been set" do
-    before do
-      File.stub(:exist?).and_return(false)
-      @configEye = ConfigEye.new
-    end
+  include FakeFS::SpecHelpers
 
+  before do
+    @configEye = ConfigEye.new
+  end
+
+  context "when no duration has been set" do
     it "returns the default of 600 seconds" do
       expect(@configEye.config.duration).to equal(600)
     end
   end
 
   context "when calling with -d 10" do
-    before do
-      ConfigEye.stub(:load).and_return(Construct.new({cameras: []}))
-      File.stub(:read).and_return(true)
-      File.stub(:open).and_return(true)
-      @configEye = ConfigEye.new
-    end
-
     it "returns 10" do
       @configEye.set_duration(10)
       expect(@configEye.config.duration).to equal(10)
@@ -159,25 +160,19 @@ describe "set_duration" do
 end
 
 describe "set_path" do
-  context "when no path has been set" do
-    before do
-      File.stub(:exist?).and_return(false)
-      @configEye = ConfigEye.new
-    end
+  include FakeFS::SpecHelpers
 
+  before do
+    @configEye = ConfigEye.new
+  end
+
+  context "when no path has been set" do
     it "returns the default of ~/recordings" do
       expect(@configEye.config.path == "~/recordings").to equal(true)
     end
   end
 
   context "when calling with -p '/data/recordings'" do
-    before do
-      ConfigEye.stub(:load).and_return(Construct.new({cameras: []}))
-      File.stub(:read).and_return(true)
-      File.stub(:open).and_return(true)
-      @configEye = ConfigEye.new
-    end
-
     it "returns '/data/recordings'" do
       @configEye.set_path('/data/recordings')
       expect(@configEye.config.path == '/data/recordings').to equal(true)
