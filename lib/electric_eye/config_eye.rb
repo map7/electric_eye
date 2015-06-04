@@ -8,7 +8,6 @@ module ElectricEye
     
     # Check the directory and if it doesn't exist create it.
     def self.check_dir
-      puts "CHECK: #{CONFIG_DIR}"
       FileUtils.mkdir_p(CONFIG_DIR) unless Dir.exist?(CONFIG_DIR)
     end
 
@@ -16,7 +15,6 @@ module ElectricEye
     def self.load
       # Check if we have a config CONFIG_FILE
       ConfigEye.check_dir
-      puts "ENVYEAH: #{ENV['HOME']}, #{CONFIG_DIR}, #{CONFIG_FILE}"
       if File.exist?(CONFIG_FILE)
         Construct.load File.read(CONFIG_FILE)
       else
