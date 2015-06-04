@@ -4,3 +4,4 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'construct'                 # Config manager in YAML format
+gem 'table_print'               # Print a nice table in stdout

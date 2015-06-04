@@ -1,4 +1,5 @@
 require 'methadone'
+require 'table_print'
 
 module ElectricEye
   class ConfigEye
@@ -41,6 +42,12 @@ module ElectricEye
         save
       end
       info "Camera removed"
+    end
+
+    # List cameras in setup
+    def list_cameras
+      info "Cameras"
+      tp @config.cameras, :name, :url => {width: 120}
     end
 
     # Set duration

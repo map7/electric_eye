@@ -17,6 +17,8 @@ class App
       @configEye.add_camera(camera,url) 
     elsif options[:r]           # Remove camera
       @configEye.remove_camera(camera)
+    elsif options[:l]           # List cameras
+      @configEye.list_cameras
     elsif options[:d]
       @configEye.set_duration(options[:duration])
     elsif options[:p]
@@ -31,6 +33,7 @@ class App
   # Accept flags via:
   on("-a", "--add", "Add a camera") 
   on("-r", "--remove", "Remove a camera")
+  on("-l", "--list", "List cameras")
   on("-d", "--duration SECONDS", "Set recording duration in seconds")
   on("-p", "--path DIR", "Set recordings path")
 
