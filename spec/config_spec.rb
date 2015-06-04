@@ -84,8 +84,9 @@ describe "check config" do
 end
 
 describe "add camera" do
+  include FakeFS::SpecHelpers
+
   before do
-    ConfigEye.stub(:load).and_return(Construct.new({cameras: []}))
     @configEye = ConfigEye.new
   end
   
@@ -101,9 +102,11 @@ describe "add camera" do
 end
 
 describe "remove camera" do
+  include FakeFS::SpecHelpers
+
   before do
-    ConfigEye.stub(:load).and_return(Construct.new({cameras: [{name: "Reception"}]}))
     @configEye = ConfigEye.new
+    @configEye.add_camera("Reception", "http://user:pass@my.camera.org/live2.sdp")
   end
 
   context "when camera exists" do
@@ -119,7 +122,7 @@ describe "remove camera" do
     end
   end
 
-  context "when camera doesn't exist" do
+  context "when specified camera doesn't exist" do
     it "keeps the camera array the same size" do
       expect(@configEye.config.cameras.length).to equal(1)
       @configEye.remove_camera("Kitchen")
