@@ -10,4 +10,8 @@ module ElectricEye
   def record
     info "Cameras recording"
   end
+
+  def record_path(path)
+    path
+  end
 end

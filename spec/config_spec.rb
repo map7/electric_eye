@@ -50,6 +50,7 @@ describe "check config" do
   context "exists" do
     it "returns a construct object" do
       File.stub(:exist?).and_return(true)
+      File.stub(:read).and_return("---\ncameras: []")
       config = ConfigEye.load      
       expect(config.class).to equal(Construct)      
     end
@@ -74,6 +75,8 @@ end
 describe "add camera" do
   before do
     ConfigEye.stub(:load).and_return(Construct.new({cameras: []}))
+    File.stub(:read).and_return(true)
+    File.stub(:open).and_return(true)
     @configEye = ConfigEye.new
   end
   
@@ -91,6 +94,8 @@ end
 describe "remove camera" do
   before do
     ConfigEye.stub(:load).and_return(Construct.new({cameras: [{name: "Reception"}]}))
+    File.stub(:read).and_return(true)
+    File.stub(:open).and_return(true)
     @configEye = ConfigEye.new
   end
 
@@ -136,6 +141,8 @@ describe "set_duration" do
   context "when calling with -d 10" do
     before do
       ConfigEye.stub(:load).and_return(Construct.new({cameras: []}))
+      File.stub(:read).and_return(true)
+      File.stub(:open).and_return(true)
       @configEye = ConfigEye.new
     end
 
@@ -166,6 +173,8 @@ describe "set_path" do
   context "when calling with -p '/data/recordings'" do
     before do
       ConfigEye.stub(:load).and_return(Construct.new({cameras: []}))
+      File.stub(:read).and_return(true)
+      File.stub(:open).and_return(true)
       @configEye = ConfigEye.new
     end
 

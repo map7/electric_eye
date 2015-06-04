@@ -15,6 +15,7 @@ module ElectricEye
     def self.load
       # Check if we have a config CONFIG_FILE
       ConfigEye.check_dir
+      puts "ENVYEAH: #{ENV['HOME']}, #{CONFIG_DIR}, #{CONFIG_FILE}"
       if File.exist?(CONFIG_FILE)
         Construct.load File.read(CONFIG_FILE)
       else

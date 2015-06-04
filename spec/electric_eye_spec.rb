@@ -20,3 +20,20 @@ describe "store_pids" do
     expect(pids == "100 101 102").to equal(true)
   end
 end
+
+describe "record_path" do
+  before do
+    Timecop.freeze(Time.local(2015,06,30,10,05,0))
+    @configEye = ConfigEye.new
+    puts @configEye.config.path
+  end
+
+  after do
+    Timecop.return
+  end
+  
+  it "returns a full path with todays date" do
+    dir = record_path(@configEye.config.path)
+    expect(dir).to include("~/recordings/20150630-1005")
+  end
+end
