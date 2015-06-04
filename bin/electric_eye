@@ -19,10 +19,10 @@ class App
       @configEye.remove_camera(camera)
     elsif options[:l]           # List cameras
       @configEye.list_cameras
-    elsif options[:d]
-      @configEye.set_duration(options[:duration])
-    elsif options[:p]
-      @configEye.set_path(options[:path])
+    elsif options[:d]           # Set duration
+      @configEye.set_duration(options[:duration]) 
+    elsif options[:p]           # Set path
+      @configEye.set_path(options[:path]) 
     end
     
     exit 0
