@@ -5,7 +5,6 @@ describe "record" do
     @record = Record.new
   end
 
-
   describe "store_pids" do
     include FakeFS::SpecHelpers
 
@@ -33,7 +32,7 @@ describe "record" do
     before do
       Timecop.freeze(Time.local(2015,06,30,10,05,0))
       @configEye = ConfigEye.new
-      puts @configEye.config.path
+      @configEye.add_camera("Reception", "http://user:pass@my.camera.org/live2.sdp")
     end
 
     after do
@@ -41,9 +40,8 @@ describe "record" do
     end
     
     it "returns a full path with todays date" do
-      pending
-      dir = @record.path(@configEye.config.path)
-      expect(dir).to include("~/recordings/20150630-1005")
+      path = @record.path(@configEye.config.path, @configEye.config.cameras.first)
+      expect(path).to include("~/recordings/Reception/20150630-1005-Reception.mjpeg")
     end
   end
 end

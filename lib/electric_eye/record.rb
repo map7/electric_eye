@@ -13,8 +13,10 @@ module ElectricEye
       info "Cameras recording"
     end
 
-    def path(path)
-      path
+    def path(path, camera)
+      dir = "#{path}/#{camera[:name]}"
+      FileUtils.mkdir_p(dir) unless Dir.exist?(dir)
+      "#{dir}/#{Time.now.strftime('%Y%m%d-%H%M')}-#{camera[:name]}.mjpeg"
     end
   end
 end
