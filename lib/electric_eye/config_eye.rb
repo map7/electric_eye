@@ -17,7 +17,7 @@ module ElectricEye
       if File.exist?(CONFIG_FILE)
         Construct.load File.read(CONFIG_FILE)
       else
-        Construct.new({duration: 600, cameras: []})
+        Construct.new({duration: 600, path: '~/recordings', cameras: []})
       end
     end
 
@@ -48,6 +48,13 @@ module ElectricEye
       @config.duration = seconds.to_i
       save
       info "Duration set to #{seconds} seconds"
+    end
+
+    # Set path
+    def set_path(dir)
+      @config.path = dir
+      save
+      info "Path set to #{dir}"
     end
 
     # Initialise the method.

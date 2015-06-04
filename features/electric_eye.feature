@@ -17,6 +17,7 @@ Feature: Electric Eye
     | --add      |
     | --remove   |
     | --duration |
+    | --path     |
 
   Scenario: Add camera
     When I successfully run `electric_eye -a Reception rtsp://user:passwd@192.168.0.100/live.sdp`
@@ -39,3 +40,8 @@ Feature: Electric Eye
     And within the file "~/.electric_eye/config.yml" we should have the duration "10"
     And the stdout should contain "Duration set to 10 seconds"
 
+  Scenario: Set path
+    When I successfully run `electric_eye -p '/data/recordings'`
+    Then the exit status should be 0
+    And within the file "~/.electric_eye/config.yml" we should have the path "/data/recordings"
+    And the stdout should contain "Path set to /data/recordings"

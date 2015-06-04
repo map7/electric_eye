@@ -122,7 +122,6 @@ describe "remove camera" do
 end
 
 describe "set_duration" do
-
   context "when no duration has been set" do
     before do
       File.stub(:exist?).and_return(false)
@@ -148,6 +147,36 @@ describe "set_duration" do
     it "calls save" do
       expect(@configEye).to receive(:save).once
       @configEye.set_duration(10)
+    end
+  end
+end
+
+describe "set_path" do
+  context "when no path has been set" do
+    before do
+      File.stub(:exist?).and_return(false)
+      @configEye = ConfigEye.new
+    end
+
+    it "returns the default of ~/recordings" do
+      expect(@configEye.config.path == "~/recordings").to equal(true)
+    end
+  end
+
+  context "when calling with -p '/data/recordings'" do
+    before do
+      ConfigEye.stub(:load).and_return(Construct.new({cameras: []}))
+      @configEye = ConfigEye.new
+    end
+
+    it "returns '/data/recordings'" do
+      @configEye.set_path('/data/recordings')
+      expect(@configEye.config.path == '/data/recordings').to equal(true)
+    end
+
+    it "calls save" do
+      expect(@configEye).to receive(:save).once
+      @configEye.set_path('/data/recordings')
     end
   end
 end

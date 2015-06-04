@@ -19,6 +19,8 @@ class App
       @configEye.remove_camera(camera)
     elsif options[:d]
       @configEye.set_duration(options[:duration])
+    elsif options[:p]
+      @configEye.set_path(options[:path])
     end
     
     exit 0
@@ -30,6 +32,7 @@ class App
   on("-a", "--add", "Add a camera") 
   on("-r", "--remove", "Remove a camera")
   on("-d", "--duration SECONDS", "Set recording duration in seconds")
+  on("-p", "--path DIR", "Set recordings path")
 
   # Arguments
   arg :camera, :optional
