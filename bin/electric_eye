@@ -12,6 +12,7 @@ class App
 
   main do |camera, url| # Add args you want: |like,so|
     @configEye = ConfigEye.new     # Initialize config
+    @record = Record.new
     
     if options[:a]              # Add camera
       @configEye.add_camera(camera,url) 
@@ -24,7 +25,7 @@ class App
     elsif options[:p]           # Set path
       @configEye.set_path(options[:path]) 
     elsif options[:s]           # Start recording
-      record
+      @record.start
     end
     
     exit 0
