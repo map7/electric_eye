@@ -11,6 +11,9 @@ module ElectricEye
     end
 
     def start
+      
+      
+      store_pids
       info "Cameras recording"
     end
 
