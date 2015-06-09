@@ -23,14 +23,14 @@ module ElectricEye
           stop_recording = false
           Signal.trap('INT') { stop_recording = true }
           until stop_recording
-            puts "Recording #{camera[:name]} to #{path(camera)}..."
+            info "Recording #{camera[:name]} to #{path(camera)}..."
 
-            # # Set a recording going using vlc, hold onto the process till it's finished.
-            # cmd="cvlc --qt-minimal-view --no-audio -R #{camera[:url]} --sout file/ts:#{path(camera)}"
-            # pid,stdin,stdout,stderr=Open4::popen4(cmd)
+            # Set a recording going using vlc, hold onto the process till it's finished.
+            cmd="cvlc --qt-minimal-view --no-audio -R #{camera[:url]} --sout file/ts:#{path(camera)}"
+            pid,stdin,stdout,stderr=Open4::popen4(cmd)
 
             sleep @configEye.config.duration
-            # `kill -9 #{pid}`        # Stop current recording.
+            `kill -9 #{pid}`        # Stop current recording.
           end
         end
       end
