@@ -19,4 +19,5 @@ Feature: Electric Eye
     | --path     |
     | --list     |
     | --start    |
+    | --stop     |
 

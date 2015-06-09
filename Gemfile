@@ -7,3 +7,4 @@ gem 'construct'                 # Config manager in YAML format
 gem 'table_print'               # Print a nice table in stdout
 gem 'timecop'                   # Freeze time for tests
 gem 'fakefs', require: "fakefs/safe"
+gem 'open4'                     # Handle shell commands

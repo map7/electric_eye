@@ -41,4 +41,37 @@ describe "record" do
       expect(path).to include("~/recordings/Reception/20150630-1005-Reception.mjpeg")
     end
   end
+
+  describe "get_pids" do
+    it "returns pids" do
+      File.open("/tmp/electric_eye.pid", "w") do |file|
+        file.write("1 2 3")
+      end
+
+      expect(@record.get_pids == "1 2 3").to equal(true)
+    end
+  end
+
+  describe "stop_recordings" do
+    before do
+      File.open("/tmp/electric_eye.pid", "w") do |file|
+        file.write("10000 10001 10002")
+      end
+    end
+    
+    it "calls kill" do
+      open4 = mock(Open4)
+      open4.stub!(:exitstatus).and_return(0)
+      
+      Open4.should_receive(:popen4).with('kill -INT 10000 10001 10002').and_return(open4)
+
+      @record.stop_recordings("10000 10001 10002")
+    end
+
+    it "removes the old file" do
+      expect(File.exists?("/tmp/electric_eye.pid")).to equal(true)
+      @record.stop_recordings("10000 10001 10002")
+      expect(File.exists?("/tmp/electric_eye.pid")).to equal(false)
+    end
+  end
 end
