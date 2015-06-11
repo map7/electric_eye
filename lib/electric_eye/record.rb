@@ -12,8 +12,6 @@ module ElectricEye
     end
 
     def start
-      puts @configEye.config.cameras
-
       pids = []
       # Step through each camera
       @configEye.config.cameras.each do |camera|
@@ -23,7 +21,7 @@ module ElectricEye
           stop_recording = false
           Signal.trap('INT') { stop_recording = true }
           until stop_recording
-            info "Recording #{camera[:name]} to #{path(camera)}..."
+            debug "Recording #{camera[:name]} to #{path(camera)}..."
 
             # Set a recording going using vlc, hold onto the process till it's finished.
             cmd="cvlc --qt-minimal-view --no-audio -R #{camera[:url]} --sout file/ts:#{path(camera)}"
