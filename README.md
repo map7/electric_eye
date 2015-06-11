@@ -81,6 +81,45 @@ Usage in development mode
     bundle exec bin/electric_eye -h
 
 
+## Start on boot
+
+To start the service on boot (on a linux machine) add the following
+
+```ruby
+#!/usr/bin/env ruby
+#
+# Electric Eye
+#
+# chkconfig:    2345 80 20
+# description:  Network Video Recorder
+
+APP_NAME = 'electric_eye'
+
+case ARGV.first
+
+when 'start'
+        system 'su johnsmith -c "electric_eye -s"'
+
+when 'stop'
+        system 'su johnsmith -c "electric_eye -k"'
+
+when 'restart'
+        system 'su johnsmith -c "electric_eye -k"'
+        sleep 0.5
+        system 'su johnsmith -c "electric_eye -s"'
+
+end
+
+unless %w{start stop restart}.include? ARGV.first
+        puts "Usage: #{APP_NAME} {start|stop|restart}"
+        exit
+end
+```
+
+Replace johnsmith with your user where you have setup your camera profiles. NOTE: I cannot get it working nicely with the root user.
+
+
+
 ## Cleanup
 
 Cleaning up recordings. Put the following into your /etc/crontab per recording directory.
