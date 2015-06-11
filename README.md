@@ -85,6 +85,8 @@ Usage in development mode
 
 To start the service on boot (on a linux machine) add the following
 
+Add the following to /etc/init/electric_eye
+
 ```ruby
 #!/usr/bin/env ruby
 #
@@ -115,6 +117,13 @@ unless %w{start stop restart}.include? ARGV.first
         exit
 end
 ```
+
+Make executable & add to startup
+
+    cd /etc/init.d
+    chmod +x electric_eye
+    update-rc.d electric_eye defaults
+
 
 Replace johnsmith with your user where you have setup your camera profiles. NOTE: I cannot get it working nicely with the root user.
 
