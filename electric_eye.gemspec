@@ -8,10 +8,10 @@ Gem::Specification.new do |spec|
   spec.version       = ElectricEye::VERSION
   spec.authors       = ["Michael Pope"]
   spec.email         = ["michael@dtcorp.com.au"]
-  spec.summary       = %q{A network video recorder for multiple IP cameras.}
-  spec.description   = %q{}
-  spec.homepage      = ""
-  spec.license       = "mit"
+  spec.summary       = %q{Network Video Recorder}
+  spec.description   = %q{A network video recorder for multiple IP cameras which uses VLC to record and organises the files according to date and camera name.}
+  spec.homepage      = "https://github.com/map7/electric_eye"
+  spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
