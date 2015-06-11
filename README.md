@@ -81,6 +81,16 @@ Usage in development mode
     bundle exec bin/electric_eye -h
 
 
+## Cleanup
+
+Cleaning up recordings. Put the following into your /etc/crontab per recording directory.
+
+    00 19	* * *	root	/usr/bin/find <directory to recordings> -type f -mtime +<days> -exec rm {} \;
+
+Example for cleaning up reception after 60days at 7pm everynight.
+
+    00 19	* * *	root	/usr/bin/find /media/recordings/reception -type f -mtime +60 -exec rm {} \;
+
 ## Contributing
 
 1. Fork it ( https://github.com/map7/electric_eye/fork )
