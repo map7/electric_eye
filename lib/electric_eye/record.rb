@@ -29,6 +29,7 @@ module ElectricEye
             cmd="cvlc --qt-minimal-view --no-audio -R #{camera[:url]} --sout file/ts:#{path(camera)}"
             pid,stdin,stdout,stderr=Open4::popen4(cmd)
 
+            # Wait for a defined duration from the config file.
             seconds = @configEye.config.duration
             while(seconds > 0)
               sleep 1
@@ -36,7 +37,8 @@ module ElectricEye
               break if stop_recording
             end
             
-            `kill -9 #{pid}`        # Stop current recording.
+            Process.kill 9, pid # Stop current recording.
+            Process.wait pid    # Wait around so we don't get Zombies
           end
         end
       end
