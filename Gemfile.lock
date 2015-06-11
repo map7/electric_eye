@@ -2,7 +2,10 @@ PATH
   remote: .
   specs:
     electric_eye (0.0.1)
+      construct
       methadone (~> 1.9.0)
+      open4
+      table_print
 
 GEM
   remote: https://rubygems.org/
@@ -55,12 +58,9 @@ PLATFORMS
 DEPENDENCIES
   aruba
   bundler (~> 1.7)
-  construct
   electric_eye!
   fakefs
-  open4
   rake (~> 10.0)
   rdoc
   rspec (~> 2.99)
-  table_print
   timecop

@@ -18,10 +18,16 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
+  spec.add_runtime_dependency "construct"
+  spec.add_runtime_dependency "table_print"
+  spec.add_runtime_dependency "open4"
+
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency('rdoc')
   spec.add_development_dependency('aruba')
+  spec.add_development_dependency('timecop')
+  spec.add_development_dependency('fakefs')
   spec.add_dependency('methadone', '~> 1.9.0')
   spec.add_development_dependency('rspec', '~> 2.99')
 end
