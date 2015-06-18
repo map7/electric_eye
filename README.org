@@ -90,20 +90,21 @@ Add the following to /etc/init/electric_eye
 : # chkconfig:    2345 80 20
 : # description:  Network Video Recorder
 : 
+: RBENV_DIR= '/usr/local/rbenv/shims'
 : APP_NAME = 'electric_eye'
 : 
 : case ARGV.first
 : 
 : when 'start'
-:         system 'su johnsmith -c "electric_eye -s"'
+:         system "su map7 -c \"#{RBENV_DIR}/electric_eye -s\""
 : 
 : when 'stop'
-:         system 'su johnsmith -c "electric_eye -k"'
+:         system "su map7 -c \"#{RBENV_DIR}/electric_eye -k\""
 : 
 : when 'restart'
-:         system 'su johnsmith -c "electric_eye -k"'
+:         system "su map7 -c \"#{RBENV_DIR}/electric_eye -k\""
 :         sleep 0.5
-:         system 'su johnsmith -c "electric_eye -s"'
+:         system "su map7 -c \"#{RBENV_DIR}/electric_eye -s\""
 : 
 : end
 : 
