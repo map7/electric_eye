@@ -96,15 +96,15 @@ Add the following to /etc/init/electric_eye
 : case ARGV.first
 : 
 : when 'start'
-:         system "su map7 -c \"#{RBENV_DIR}/electric_eye -s\""
+:         system "su johnsmith -c \"#{RBENV_DIR}/electric_eye -s\""
 : 
 : when 'stop'
-:         system "su map7 -c \"#{RBENV_DIR}/electric_eye -k\""
+:         system "su johnsmith -c \"#{RBENV_DIR}/electric_eye -k\""
 : 
 : when 'restart'
-:         system "su map7 -c \"#{RBENV_DIR}/electric_eye -k\""
+:         system "su johnsmith -c \"#{RBENV_DIR}/electric_eye -k\""
 :         sleep 0.5
-:         system "su map7 -c \"#{RBENV_DIR}/electric_eye -s\""
+:         system "su johnsmith -c \"#{RBENV_DIR}/electric_eye -s\""
 : 
 : end
 : 
