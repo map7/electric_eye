@@ -62,15 +62,15 @@ The default is going to be 10 minute blocks, this can be overridden with the dur
 
 First make sure you add your cameras
 
-: electric_eye add Reception <url>
+: electric_eye -a Reception <url>
 
 Now start the daemon to start the recording process
 
-: electric_eye start
+: electric_eye -s
 
 Stop all recordings
 
-: electric_eye stop
+: electric_eye -k
 
 Usage in development mode
 
