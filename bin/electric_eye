@@ -28,6 +28,8 @@ class App
       @record.start
     elsif options[:k]           # Stop recordings
       @record.stop
+    else
+      puts opts.help
     end
     
     exit 0
