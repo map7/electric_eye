@@ -7,7 +7,16 @@
 \fBelectric_eye\fR \- Record one or more IP cameras
 .
 .SH "SYNOPSIS"
-\fBelectric_eye\fR \fB\-a camera_name camera_url\fR \fBelectric_eye\fR \fB\-r camera_name\fR \fBelectric_eye\fR \fB\-s\fR \fBelectric_eye\fR \fB\-k\fR
+\fBelectric_eye\fR \fB\-a camera_name camera_url\fR
+.
+.br
+\fBelectric_eye\fR \fB\-r camera_name\fR
+.
+.br
+\fBelectric_eye\fR \fB\-s\fR
+.
+.br
+\fBelectric_eye\fR \fB\-k\fR
 .
 .SH "DESCRIPTION"
 \fBelectric_eye\fR is a simple program which loops over all your cameras and starts recording into a set directory naming each file by date\. The duration of the recordings is set by the user (default is 10minutes)\.
@@ -46,16 +55,28 @@ Start recordings
 Stop all recordings
 .
 .SH "EXAMPLES"
-Add a camera called reception $ electric_eye \-a reception http://192\.168\.0\.2/live2\.sdp
+Add a camera called reception
+.
+.br
+$ electric_eye \-a reception http://192\.168\.0\.2/live2\.sdp
 .
 .P
-Remove a camera $ electric_eye \-a reception
+Remove a camera
+.
+.br
+$ electric_eye \-a reception
 .
 .P
-Start recordings $ electric_eye \-s
+Start recordings
+.
+.br
+$ electric_eye \-s
 .
 .P
-Stop recordings $ electric_eye \-k
+Stop recordings
+.
+.br
+$ electric_eye \-k
 .
 .SH "AUTHOR"
 Michael Pope (map7777@gmail\.com)

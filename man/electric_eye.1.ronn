@@ -3,9 +3,9 @@ electric_eye(1) -- Record one or more IP cameras
 
 ## SYNOPSIS
 
-`electric_eye` `-a camera_name camera_url`
-`electric_eye` `-r camera_name`
-`electric_eye` `-s`
+`electric_eye` `-a camera_name camera_url`<br>
+`electric_eye` `-r camera_name`<br>
+`electric_eye` `-s`<br>
 `electric_eye` `-k`
 
 ## DESCRIPTION
@@ -37,16 +37,16 @@ duration of the recordings is set by the user (default is 10minutes).
 
 ## EXAMPLES
 
-Add a camera called reception
+Add a camera called reception<br>
     $ electric_eye -a reception http://192.168.0.2/live2.sdp
 
-Remove a camera
+Remove a camera<br>
     $ electric_eye -a reception 
 
-Start recordings
+Start recordings<br>
     $ electric_eye -s
 
-Stop recordings
+Stop recordings<br>
     $ electric_eye -k
 
 ## AUTHOR
