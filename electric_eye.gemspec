@@ -28,6 +28,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency('aruba')
   spec.add_development_dependency('timecop')
   spec.add_development_dependency('fakefs')
+  spec.add_development_dependency('gem-man')
+  spec.add_development_dependency('ronn')
   spec.add_dependency('methadone', '~> 1.9.0')
   spec.add_development_dependency('rspec', '~> 2.99')
 end
