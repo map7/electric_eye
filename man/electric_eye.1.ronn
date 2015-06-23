@@ -1,0 +1,59 @@
+electric_eye(1) -- Record one or more IP cameras
+================================================
+
+## SYNOPSIS
+
+`electric_eye` `-a camera_name camera_url`
+`electric_eye` `-r camera_name`
+`electric_eye` `-s`
+`electric_eye` `-k`
+
+## DESCRIPTION
+
+**electric_eye** is a simple program which loops over all your cameras
+and starts recording into a set directory naming each file by date. The
+duration of the recordings is set by the user (default is 10minutes).
+
+## FILES
+
+`~/.electric_eye/config.yml` is used for storing the configuration
+
+## OPTIONS
+
+  * `-a`, `--add CAMERA_NAME CAMERA_URL`:
+    Add a camera
+  * `-r`, `--remove CAMERA_NAME`:
+    Remove a camera
+  * `-p`, '--path DIR':
+    Set the output path
+  * `-d`, `--duration SECONDS`:
+    Set the duration of each recording
+  * `-l`, `--list`:
+    List the cameras in the config
+  * `-s`, `--start`:
+    Start recordings
+  * `-k`, `--stop`:
+    Stop all recordings
+
+## EXAMPLES
+
+Add a camera called reception
+    $ electric_eye -a reception http://192.168.0.2/live2.sdp
+
+Remove a camera
+    $ electric_eye -a reception 
+
+Start recordings
+    $ electric_eye -s
+
+Stop recordings
+    $ electric_eye -k
+
+## AUTHOR
+
+Michael Pope (map7777@gmail.com)
+
+## SEE ALSO
+
+VLC (https://www.videolan.org/vlc/)
+

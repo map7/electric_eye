@@ -1,0 +1,64 @@
+.\" generated with Ronn/v0.7.3
+.\" http://github.com/rtomayko/ronn/tree/0.7.3
+.
+.TH "ELECTRIC_EYE" "1" "June 2015" "" ""
+.
+.SH "NAME"
+\fBelectric_eye\fR \- Record one or more IP cameras
+.
+.SH "SYNOPSIS"
+\fBelectric_eye\fR \fB\-a camera_name camera_url\fR \fBelectric_eye\fR \fB\-r camera_name\fR \fBelectric_eye\fR \fB\-s\fR \fBelectric_eye\fR \fB\-k\fR
+.
+.SH "DESCRIPTION"
+\fBelectric_eye\fR is a simple program which loops over all your cameras and starts recording into a set directory naming each file by date\. The duration of the recordings is set by the user (default is 10minutes)\.
+.
+.SH "FILES"
+\fB~/\.electric_eye/config\.yml\fR is used for storing the configuration
+.
+.SH "OPTIONS"
+.
+.TP
+\fB\-a\fR, \fB\-\-add CAMERA_NAME CAMERA_URL\fR
+Add a camera
+.
+.TP
+\fB\-r\fR, \fB\-\-remove CAMERA_NAME\fR
+Remove a camera
+.
+.TP
+\fB\-p\fR, \'\-\-path DIR\'
+Set the output path
+.
+.TP
+\fB\-d\fR, \fB\-\-duration SECONDS\fR
+Set the duration of each recording
+.
+.TP
+\fB\-l\fR, \fB\-\-list\fR
+List the cameras in the config
+.
+.TP
+\fB\-s\fR, \fB\-\-start\fR
+Start recordings
+.
+.TP
+\fB\-k\fR, \fB\-\-stop\fR
+Stop all recordings
+.
+.SH "EXAMPLES"
+Add a camera called reception $ electric_eye \-a reception http://192\.168\.0\.2/live2\.sdp
+.
+.P
+Remove a camera $ electric_eye \-a reception
+.
+.P
+Start recordings $ electric_eye \-s
+.
+.P
+Stop recordings $ electric_eye \-k
+.
+.SH "AUTHOR"
+Michael Pope (map7777@gmail\.com)
+.
+.SH "SEE ALSO"
+VLC (https://www\.videolan\.org/vlc/)
