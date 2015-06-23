@@ -51,9 +51,9 @@ Stop recordings<br>
 
 ## AUTHOR
 
-Michael Pope (map7777@gmail.com)
+Michael Pope <map7777@gmail.com>
 
 ## SEE ALSO
 
-VLC (https://www.videolan.org/vlc/)
+[VLC](https://www.videolan.org/vlc/)
 
