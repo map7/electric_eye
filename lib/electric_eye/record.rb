@@ -21,10 +21,10 @@ module ElectricEye
           stop_recording = false
           Signal.trap('INT') { stop_recording = true }
           until stop_recording
-            debug "Recording #{camera[:name]} to #{path(camera)}..."
+            debug "Recording #{camera[:name]} to #{path(camera)}.mjpeg..."
 
             # Set a recording going using vlc, hold onto the process till it's finished.
-            cmd="cvlc --qt-minimal-view -R #{camera[:url]} --sout file/ts:#{path(camera)}"
+            cmd="cvlc #{camera[:url]} --sout file/ts:#{path(camera)}.mjpeg"
             pid,stdin,stdout,stderr=Open4::popen4(cmd)
 
             # Wait for a defined duration from the config file.
@@ -62,7 +62,7 @@ module ElectricEye
     def path(camera)
       dir = "#{@configEye.config.path}/#{camera[:name]}"
       FileUtils.mkdir_p(dir) unless Dir.exist?(dir)
-      "#{dir}/#{Time.now.strftime('%Y%m%d-%H%M')}-#{camera[:name]}.mjpeg"
+      "#{dir}/#{Time.now.strftime('%Y%m%d-%H%M')}-#{camera[:name]}"
     end
 
     def initialize(configEye)
