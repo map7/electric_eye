@@ -2,6 +2,8 @@
 
 A network video recorder for multiple IP cameras using VLC.
 
+[[http://mlug-au.org/doku.php/workshops/electric_eye_mpd][MLUG presentation slides on electric_eye]]
+
 ** History
 
 I've been using Zoneminder & motion and these programs are either too large for my requirements (zoneminder) or don't work with the cameras I own (motion). What I did notice is all my cameras work through VLC with high resolution and VLC can record. 
