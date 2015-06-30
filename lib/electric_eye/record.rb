@@ -21,10 +21,11 @@ module ElectricEye
           stop_recording = false
           Signal.trap('INT') { stop_recording = true }
           until stop_recording
-            debug "Recording #{camera[:name]} to #{path(camera)}.mjpeg..."
-
+            path = "#{path(camera)}"
+            debug "Recording #{camera[:name]} to #{path}.mjpeg..."
+            
             # Set a recording going using vlc, hold onto the process till it's finished.
-            cmd="cvlc #{camera[:url]} --sout file/ts:#{path(camera)}.mjpeg"
+            cmd="cvlc #{camera[:url]} --sout file/ts:#{path}.mjpeg"
             pid,stdin,stdout,stderr=Open4::popen4(cmd)
 
             # Wait for a defined duration from the config file.
@@ -37,8 +38,16 @@ module ElectricEye
             
             Process.kill 9, pid # Stop current recording.
             Process.wait pid    # Wait around so we don't get Zombies
+
+            # Look for any motion
+            fork do
+              # Use Xvfb which opens up a virtual desktop to dump a GUI screen we don't want to see.
+              # -a = select the next available display
+              Open4::popen4("xvfb-run -a cvlc --no-loop --play-and-exit --video-filter=motiondetect -vvv #{path}.mjpeg > #{path}.log 2>&1")
+            end
           end
         end
+        
       end
 
       store_pids(pids)
