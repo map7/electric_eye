@@ -24,7 +24,7 @@ module ElectricEye
             debug "Recording #{camera[:name]} to #{path(camera)}..."
 
             # Set a recording going using vlc, hold onto the process till it's finished.
-            cmd="cvlc --qt-minimal-view --no-audio -R #{camera[:url]} --sout file/ts:#{path(camera)}"
+            cmd="cvlc --qt-minimal-view -R #{camera[:url]} --sout file/ts:#{path(camera)}"
             pid,stdin,stdout,stderr=Open4::popen4(cmd)
 
             # Wait for a defined duration from the config file.
