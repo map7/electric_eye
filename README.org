@@ -12,7 +12,8 @@ The problem was though VLC doesn't automate the recordings or handle the file st
 
 ** Requirements
 
-- VLC
+- VLC  - recording & motion detection
+- xvfb - Running virtual frame buffers (ie: desktops)
 - ruby
 - Linux (Tested on Debian 7)
 
