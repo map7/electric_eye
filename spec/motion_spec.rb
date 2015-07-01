@@ -32,12 +32,16 @@ describe "motion" do
   end
 
   describe "#get_movement" do
-    before do
-      @movement = "[0x1572e58] motiondetect filter debug: Counted 1 moving shapes."
+    context "with single digit" do
+      it "returns 1" do
+        expect(@motion.movement("[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.")).to equal(1)
+      end
     end
 
-    it "returns 1" do
-      expect(@motion.movement(@movement)).to equal(1)
+    context "with double digit" do
+      it "returns 10" do
+        expect(@motion.movement("[0x1572e58] motiondetect filter debug: Counted 10 moving shapes.")).to equal(10)
+      end
     end
   end
 
