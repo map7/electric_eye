@@ -38,7 +38,7 @@ describe "record" do
     
     it "returns a full path with todays date" do
       path = @record.path(@configEye.config.cameras.first)
-      expect(path).to include("~/recordings/Reception/20150630-1005-Reception.mjpeg")
+      expect(path).to include("~/recordings/Reception/20150630-1005-Reception")
     end
   end
 
