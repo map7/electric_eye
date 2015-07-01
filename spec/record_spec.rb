@@ -74,4 +74,24 @@ describe "record" do
       expect(File.exists?("/tmp/electric_eye.pid")).to equal(false)
     end
   end
+
+  describe "#remove" do
+    before do
+      @path = "/tmp/electric_eye"
+      File.new("#{@path}.log", "w")
+      File.new("#{@path}.mjpeg", "w")
+    end
+
+    it "removes recording" do
+      expect(File.exist?("#{@path}.mjpeg")).to equal(true)
+      @record.remove(@path)
+      expect(File.exist?("#{@path}.mjpeg")).to equal(false)
+    end
+
+    it "removes log" do
+      expect(File.exist?("#{@path}.log")).to equal(true)
+      @record.remove(@path)
+      expect(File.exist?("#{@path}.log")).to equal(false)
+    end
+  end
 end

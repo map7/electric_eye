@@ -12,6 +12,8 @@ module ElectricEye
     end
 
     def start
+      @motion = Motion.new      # Create a new instance method to our motion library
+      
       pids = []
       # Step through each camera
       @configEye.config.cameras.each do |camera|
@@ -41,9 +43,10 @@ module ElectricEye
 
             # Look for any motion
             fork do
-              # Use Xvfb which opens up a virtual desktop to dump a GUI screen we don't want to see.
-              # -a = select the next available display
-              Open4::popen4("xvfb-run -a cvlc --no-loop --play-and-exit --video-filter=motiondetect -vvv #{path}.mjpeg > #{path}.log 2>&1")
+              @motion.create_log(path) # Create the motion detection log file.
+
+              # Remove the log & recording if there is no motion
+              remove(path) if @motion.detect("#{path}.log") == false
             end
           end
         end
@@ -54,6 +57,13 @@ module ElectricEye
       info "Cameras recording"
     end
 
+    # Remove a recording
+    def remove(path)
+      debug "Removing #{path}.mjpeg is TRASH"
+      File.delete("#{path}.log")
+      File.delete("#{path}.mjpeg")
+    end
+    
     def stop
       stop_recordings(get_pids) if File.exist?(PID_FILE)
     end
