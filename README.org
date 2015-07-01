@@ -19,6 +19,10 @@ The problem was though VLC doesn't automate the recordings or handle the file st
 
 ** Installation
 
+Under linux install vlc xvfb & ruby
+
+: sudo apt-get install vlc xvfb ruby
+
 Add this line to your application's Gemfile:
 
 : gem 'electric_eye'
