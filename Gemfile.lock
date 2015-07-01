@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    electric_eye (0.0.3)
+    electric_eye (0.0.4)
       construct
       methadone (~> 1.9.0)
       open4

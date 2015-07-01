@@ -42,7 +42,7 @@ module ElectricEye
             Process.wait pid    # Wait around so we don't get Zombies
 
             # Look for any motion
-            fork do
+            Thread.new do
               @motion.create_log(path) # Create the motion detection log file.
 
               # Remove the log & recording if there is no motion
