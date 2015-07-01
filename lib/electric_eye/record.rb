@@ -46,7 +46,11 @@ module ElectricEye
               @motion.create_log(path) # Create the motion detection log file.
 
               # Remove the log & recording if there is no motion
-              remove(path) if @motion.detect("#{path}.log") == false
+              if @motion.detect("#{path}.log")
+                debug "Keep recording #{path}.mjpeg as it has MOTION"
+              else
+                remove(path)
+              end
             end
           end
         end
