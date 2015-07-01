@@ -18,13 +18,18 @@ module ElectricEye
     end
 
     # Detect if there is motion given the results
+    #
+    # results = an array of movementdetect lines from the log file
+    # threshold is how many objects are moving at once expressed by vlc.
+    #
     def detect(results, threshold = 2)
-      results.each do |line|
-        line.slice!(/\[.*\]/)   # Remove the number in brackets at the start of the string
-        movement = line.scan(/\d+/).first.to_i
-        return true if movement >= threshold
-      end
+      results.each {|line| return true if movement(line) >= threshold}
       return false
+    end
+
+    def movement(line)
+      line.slice!(/\[.*\]/)   # Remove the number in brackets at the start of the string
+      line.scan(/\d+/).first.to_i # Get the movement
     end
   end
 end

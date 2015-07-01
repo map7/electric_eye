@@ -31,6 +31,16 @@ describe "motion" do
     end
   end
 
+  describe "#get_movement" do
+    before do
+      @movement = "[0x1572e58] motiondetect filter debug: Counted 1 moving shapes."
+    end
+
+    it "returns 1" do
+      expect(@motion.movement(@movement)).to equal(1)
+    end
+  end
+
   describe "#detect" do
     context "when there is movement" do
       before do
