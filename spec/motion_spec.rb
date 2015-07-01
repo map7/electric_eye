@@ -38,8 +38,16 @@ describe "motion" do
         @results = @motion.read_log('spec/fixtures/movement.log')
       end
 
-      it "returns true" do
-        expect(@motion.detect(@results,2)).to equal(true)
+      context "with a threshold of 2" do
+        it "returns true" do
+          expect(@motion.detect(@results,2)).to equal(true)
+        end
+      end
+
+      context "with no threshold" do
+        it "returns true" do
+          expect(@motion.detect(@results)).to equal(true)
+        end
       end
     end
 

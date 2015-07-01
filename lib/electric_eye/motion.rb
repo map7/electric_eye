@@ -18,7 +18,7 @@ module ElectricEye
     end
 
     # Detect if there is motion given the results
-    def detect(results, threshold)
+    def detect(results, threshold = 2)
       results.each do |line|
         line.slice!(/\[.*\]/)   # Remove the number in brackets at the start of the string
         movement = line.scan(/\d+/).first.to_i
