@@ -30,9 +30,15 @@ module ElectricEye
 
     # Add camera
     def add_camera(camera, url)
-      @config.cameras.push({name: camera, url: url})
-      save
-      info "Camera added"
+      if camera.nil?
+        warn "NO camera given"
+      elsif url.nil?
+        warn "NO url given"        
+      else
+        @config.cameras.push({name: camera, url: url})
+        save
+        info "Camera added"
+      end
     end
 
     # Remove camera

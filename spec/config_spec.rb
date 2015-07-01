@@ -89,15 +89,27 @@ describe "add camera" do
   before do
     @configEye = ConfigEye.new
   end
-  
-  it "adds camera to array" do
-    @configEye.add_camera("Reception", "http://user:pass@my.camera.org/live2.sdp")
-    expect(@configEye.config.cameras.length).to equal(1)
+
+  context "when both name & url provided" do
+    it "adds camera to array" do
+      @configEye.add_camera("Reception", "http://user:pass@my.camera.org/live2.sdp")
+      expect(@configEye.config.cameras.length).to equal(1)
+    end
+
+    it "calls save" do
+      expect(@configEye).to receive(:save).once
+      @configEye.add_camera("Reception", "http://user:pass@my.camera.org/live2.sdp")
+    end
   end
 
-  it "calls save" do
-    expect(@configEye).to receive(:save).once
-    @configEye.add_camera("Reception", "http://user:pass@my.camera.org/live2.sdp")
+  context "when only name provided" do
+    it "returns an error" do
+    end
+
+    it "doesn't call save" do 
+      expect(@configEye).to receive(:save).never
+      @configEye.add_camera("Reception", nil)
+    end
   end
 end
 
