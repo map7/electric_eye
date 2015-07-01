@@ -27,6 +27,7 @@ module ElectricEye
       return false
     end
 
+    # Get the movement amount from the string
     def movement(line)
       line.slice!(/\[.*\]/)   # Remove the number in brackets at the start of the string
       line.scan(/\d+/).first.to_i # Get the movement
