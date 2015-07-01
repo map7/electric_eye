@@ -150,12 +150,17 @@ Example for cleaning up reception after 60days at 7pm everynight.
 5. Create a new Pull Request
 
 ** TODO
+   :PROPERTIES:
+   :CREATED:  [2015-07-01 Wed 16:37]
+   :END:
 
 - [X] Add more testing
 
 - [X] Add post recording motion detection (use vlc)
 
 - [X] Make sure we cannot add blank cameras
+
+- [ ] Create threshold as a variable
 
 - [ ] Add a feature to clean up old recordings using a "period" setting
   EG: 60 day period which could be set in the config file how many days you want to keep
