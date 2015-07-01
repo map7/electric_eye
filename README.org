@@ -151,9 +151,9 @@ Example for cleaning up reception after 60days at 7pm everynight.
 
 ** TODO
 
-- [ ] Add more testing
+- [X] Add more testing
 
-- [ ] Add post recording motion detection (using [rmotion](https://github.com/rikiji/rmotion))
+- [X] Add post recording motion detection (use vlc)
 
 - [ ] Add a feature to clean up old recordings using a "period" setting
   EG: 60 day period which could be set in the config file how many days you want to keep
