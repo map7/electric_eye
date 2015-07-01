@@ -46,7 +46,7 @@ module ElectricEye
               @motion.create_log(threadPath) # Create the motion detection log file.
 
               # Remove the log & recording if there is no motion
-              if @motion.detect("#{threadPath}.log")
+              if @motion.detect("#{threadPath}.log", @configEye.config.threshold)
                 debug "KEEP #{threadPath}.mjpeg (motion)"
               else
                 remove(threadPath)
