@@ -22,7 +22,8 @@ module ElectricEye
     # results = an array of movementdetect lines from the log file
     # threshold is how many objects are moving at once expressed by vlc.
     #
-    def detect(results, threshold = 2)
+    def detect(path, threshold = 2)
+      results = read_log(path)
       results.each {|line| return true if movement(line) >= threshold}
       return false
     end

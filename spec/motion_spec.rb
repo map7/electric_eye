@@ -48,29 +48,29 @@ describe "motion" do
   describe "#detect" do
     context "when there is movement" do
       before do
-        @results = @motion.read_log('spec/fixtures/movement.log')
+        @file = 'spec/fixtures/movement.log'
       end
 
       context "with a threshold of 2" do
         it "returns true" do
-          expect(@motion.detect(@results,2)).to equal(true)
+          expect(@motion.detect(@file,2)).to equal(true)
         end
       end
 
       context "with no threshold" do
         it "returns true" do
-          expect(@motion.detect(@results)).to equal(true)
+          expect(@motion.detect(@file)).to equal(true)
         end
       end
     end
 
     context "when there is no movement" do
       before do
-        @results = @motion.read_log('spec/fixtures/no_movement.log')
+        @file = 'spec/fixtures/no_movement.log'
       end
 
       it "returns false" do
-        expect(@motion.detect(@results,2)).to equal(false)
+        expect(@motion.detect(@file,2)).to equal(false)
       end
     end
   end
