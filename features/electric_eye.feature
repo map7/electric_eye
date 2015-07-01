@@ -13,11 +13,12 @@ Feature: Electric Eye
     | camera | which is optional |
     | url    | which is optional |
     And the following options should be documented:
-    | --add      |
-    | --remove   |
-    | --duration |
-    | --path     |
-    | --list     |
-    | --start    |
-    | --stop     |
+    | --add       |
+    | --remove    |
+    | --duration  |
+    | --path      |
+    | --list      |
+    | --start     |
+    | --stop      |
+    | --threshold |
 

@@ -28,6 +28,8 @@ class App
       @record.start
     elsif options[:k]           # Stop recordings
       @record.stop
+    elsif options[:t]
+      @configEye.set_threshold(options[:threshold])
     else
       puts opts.help
     end
@@ -43,10 +45,11 @@ class App
   on("-a", "--add", "Add a camera") 
   on("-r", "--remove", "Remove a camera")
   on("-l", "--list", "List cameras")
-  on("-d", "--duration SECONDS", "Set recording duration in seconds")
+  on("-d", "--duration SECONDS", "Set recording duration in seconds (default: 600)")
   on("-p", "--path DIR", "Set recordings path")
   on("-s", "--start", "Start recordings")
   on("-k", "--stop", "Stop recordings")
+  on("-t", "--threshold LEVEL", "Set threshold for motion detection (default: 2)")
 
   # Arguments
   arg :camera, :optional

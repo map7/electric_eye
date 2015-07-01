@@ -200,3 +200,30 @@ describe "set_path" do
   end
 end
 
+describe "set_threshold" do
+  include FakeFS::SpecHelpers
+
+  before do
+    @configEye = ConfigEye.new
+  end
+
+  context "when no threshold has been set" do
+    it "returns the default of 2 objects" do
+      expect(@configEye.config.threshold).to equal(2)
+    end
+  end
+
+  context "when calling with -d 3" do
+    it "returns 3" do
+      @configEye.set_threshold(3)
+      expect(@configEye.config.threshold).to equal(3)
+    end
+
+    it "calls save" do
+      expect(@configEye).to receive(:save).once
+      @configEye.set_threshold(3)
+    end
+  end
+end
+
+

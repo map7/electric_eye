@@ -19,7 +19,7 @@ module ElectricEye
       if File.exist?(CONFIG_FILE)
         Construct.load File.read(CONFIG_FILE)
       else
-        Construct.new({duration: 600, path: '~/recordings', cameras: []})
+        Construct.new({duration: 600, path: '~/recordings', threshold: 2, cameras: []})
       end
     end
 
@@ -62,6 +62,13 @@ module ElectricEye
       @config.duration = seconds.to_i
       save
       info "Duration set to #{seconds} seconds"
+    end
+
+    # Set threshold
+    def set_threshold(level)
+      @config.threshold = level.to_i
+      save
+      info "Threshold set to #{level} objects"
     end
 
     # Set path
