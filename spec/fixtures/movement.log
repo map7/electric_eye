@@ -1,0 +1,1219 @@
+[0x7c8108] main libvlc debug: VLC media player - 2.0.6 Twoflower
+[0x7c8108] main libvlc debug: Copyright © 1996-2013 VLC authors and VideoLAN
+[0x7c8108] main libvlc debug: revision 2.0.6-0-gbe9623c
+[0x7c8108] main libvlc debug: configured with ./configure  '--enable-static' '--build=x86_64-linux-gnu' 'CFLAGS=-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security -D_FORTIFY_SOURCE=2' 'CPPFLAGS=-D_FORTIFY_SOURCE=2' 'CXXFLAGS=-g -O2 -fstack-protector --param=ssp-buffer-size=4 -Wformat -Werror=format-security' 'LDFLAGS=-Wl,-z,relro -Wl,--as-needed' '--config-cache' '--disable-maintainer-mode' '--disable-silent-rules' '--disable-update-check' '--enable-fast-install' '--prefix=/usr' '--docdir=/usr/share/doc/vlc-nox' '--sysconfdir=/etc' '--with-binary-version=dmo2' '--enable-a52' '--enable-aa' '--enable-bluray' '--enable-bonjour' '--enable-caca' '--enable-dbus' '--enable-dca' '--enable-dirac' '--enable-dvbpsi' '--enable-dvdnav' '--enable-faad' '--enable-flac' '--enable-fluidsynth' '--enable-freetype' '--enable-fribidi' '--enable-gnutls' '--enable-jack' '--enable-kate' '--enable-libass' '--enable-libmpeg2' '--enable-libproxy' '--enable-libxml2' '--enable-lirc' '--enable-live555' '--enable-mad' '--enable-mkv' '--enable-mod' '--enable-mpc' '--enable-mtp' '--enable-mux_ogg' '--enable-ncurses' '--enable-notify' '--enable-ogg' '--enable-oss' '--enable-pulse' '--enable-qt4' '--enable-realrtsp' '--enable-samplerate' '--enable-schroedinger' '--enable-sdl' '--enable-sftp' '--enable-shout' '--enable-skins2' '--enable-smb' '--enable-speex' '--enable-svg' '--enable-taglib' '--enable-theora' '--enable-twolame' '--enable-upnp' '--enable-vcd' '--enable-vcdx' '--enable-vorbis' '--enable-x264' '--enable-zvbi' '--with-kde-solid=/usr/share/kde4/apps/solid/actions/' '--disable-dxva2' '--disable-gnomevfs' '--disable-goom' '--disable-portaudio' '--disable-projectm' '--disable-sqlite' '--disable-telx' '--enable-alsa' '--enable-atmo' '--enable-dc1394' '--enable-dv' '--enable-libva' '--enable-linsys' '--enable-pvr' '--enable-udev' '--enable-v4l2' 'build_alias=x86_64-linux-gnu' 'CC=ccache cc' 'CXX=ccache g++'
+[0x7c8108] main libvlc debug: searching plug-in modules
+[0x7c8108] main libvlc debug: loading plugins cache file /usr/lib/vlc/plugins/plugins.dat
+[0x7c8108] main libvlc warning: This doesn't look like a valid plugins cache
+[0x7c8108] main libvlc debug: recursively browsing `/usr/lib/vlc/plugins'
+[0x7c8108] main libvlc debug: saving plugins cache /usr/lib/vlc/plugins/plugins.dat
+[0x7c8108] main libvlc debug: plug-ins loaded: 418 modules
+[0x7c8108] main libvlc debug: opening config file (/home/map7/.config/vlc/vlcrc)
+[0x7c8108] main libvlc debug: translation test: code is "C"
+[0x7c8108] main libvlc debug: CPU has capabilities MMX MMXEXT SSE SSE2 SSE3 SSSE3 SSE4.1 SSE4.2 FPU 
+[0x7c8108] main libvlc debug: looking for memcpy module: 4 candidates
+[0x7c8108] main libvlc debug: using memcpy module "memcpymmxext"
+[0x967898] main input debug: Creating an input for 'Media Library'
+[0x967898] main input debug: Input is a meta file: disabling unneeded options
+[0x967898] main input debug: using timeshift granularity of 50 MiB, in path '/tmp'
+[0x967898] main input debug: `file/xspf-open:///home/map7/.local/share/vlc/ml.xspf' gives access `file' demux `xspf-open' path `/home/map7/.local/share/vlc/ml.xspf'
+[0x967898] main input debug: creating demux: access='file' demux='xspf-open' location='/home/map7/.local/share/vlc/ml.xspf' file='/home/map7/.local/share/vlc/ml.xspf'
+[0x938518] main demux debug: looking for access_demux module: 3 candidates
+[0x938518] main demux debug: no access_demux module matching "file" could be loaded
+[0x938518] main demux debug: TIMER module_need() : 0.446 ms - Total 0.446 ms / 1 intvls (Avg 0.446 ms)
+[0x967898] main input debug: creating access 'file' location='/home/map7/.local/share/vlc/ml.xspf', path='/home/map7/.local/share/vlc/ml.xspf'
+[0x7dc8a8] main access debug: looking for access module: 2 candidates
+[0x7dc8a8] filesystem access debug: opening file `/home/map7/.local/share/vlc/ml.xspf'
+[0x7dc8a8] main access debug: using access module "filesystem"
+[0x7dc8a8] main access debug: TIMER module_need() : 0.176 ms - Total 0.176 ms / 1 intvls (Avg 0.176 ms)
+[0x93ef58] main stream debug: Using stream method for AStream*
+[0x93ef58] main stream debug: starting pre-buffering
+[0x93ef58] main stream debug: received first data after 0 ms
+[0x93ef58] main stream debug: pre-buffering done 296 bytes in 0s - 32118 KiB/s
+[0x93eb18] main stream debug: looking for stream_filter module: 7 candidates
+[0x93eb18] main stream debug: no stream_filter module matching "any" could be loaded
+[0x93eb18] main stream debug: TIMER module_need() : 0.370 ms - Total 0.370 ms / 1 intvls (Avg 0.370 ms)
+[0x93eb18] main stream debug: looking for stream_filter module: 1 candidate
+[0x93eb18] main stream debug: using stream_filter module "stream_filter_record"
+[0x93eb18] main stream debug: TIMER module_need() : 0.082 ms - Total 0.082 ms / 1 intvls (Avg 0.082 ms)
+[0x967898] main input debug: creating demux: access='file' demux='xspf-open' location='/home/map7/.local/share/vlc/ml.xspf' file='/home/map7/.local/share/vlc/ml.xspf'
+[0x7fae98] main demux debug: looking for demux module: 1 candidate
+[0x7fae98] playlist demux debug: using XSPF playlist reader
+[0x7fae98] main demux debug: using demux module "playlist"
+[0x7fae98] main demux debug: TIMER module_need() : 0.125 ms - Total 0.125 ms / 1 intvls (Avg 0.125 ms)
+[0x7fb7d8] main demux meta debug: looking for meta reader module: 2 candidates
+[0x7fb7d8] lua demux meta debug: Trying Lua scripts in /home/map7/.local/share/vlc/lua/meta/reader
+[0x7fb7d8] lua demux meta debug: Trying Lua scripts in /usr/lib/vlc/lua/meta/reader
+[0x7fb7d8] lua demux meta debug: Trying Lua playlist script /usr/lib/vlc/lua/meta/reader/filename.luac
+[0x7fb7d8] lua demux meta debug: Trying Lua scripts in /usr/share/vlc/lua/meta/reader
+[0x7fb7d8] main demux meta debug: no meta reader module matching "any" could be loaded
+[0x7fb7d8] main demux meta debug: TIMER module_need() : 1.286 ms - Total 1.286 ms / 1 intvls (Avg 1.286 ms)
+[0x967898] main input debug: `file/xspf-open:///home/map7/.local/share/vlc/ml.xspf' successfully opened
+[0x97ad88] main xml reader debug: looking for xml reader module: 1 candidate
+[0x97ad88] main xml reader debug: using xml reader module "xml"
+[0x97ad88] main xml reader debug: TIMER module_need() : 0.386 ms - Total 0.386 ms / 1 intvls (Avg 0.386 ms)
+[0x7fae98] playlist demux debug: parsed 0 tracks successfully
+[0x967898] main input debug: EOF reached
+[0x7fae98] main demux debug: removing module "playlist"
+[0x93eb18] main stream debug: removing module "stream_filter_record"
+[0x7dc8a8] main access debug: removing module "filesystem"
+[0x967898] main input debug: TIMER input launching for 'Media Library' : 2.761 ms - Total 2.761 ms / 1 intvls (Avg 2.761 ms)
+[0x958038] main interface debug: looking for interface module: 1 candidate
+[0x958038] main interface debug: using interface module "hotkeys"
+[0x958038] main interface debug: TIMER module_need() : 0.118 ms - Total 0.118 ms / 1 intvls (Avg 0.118 ms)
+[0x94f0e8] main interface debug: looking for interface module: 1 candidate
+[0x957348] main playlist debug: playlist threads correctly activated
+[0x957348] main playlist debug: rebuilding array of current - root Playlist
+[0x957348] main playlist debug: rebuild done - 0 items, index -1
+[0x94f0e8] main interface debug: using interface module "inhibit"
+[0x94f0e8] main interface debug: TIMER module_need() : 0.707 ms - Total 0.707 ms / 1 intvls (Avg 0.707 ms)
+[0x957348] main playlist debug: adding item `20150701-1204-workstations.mjpeg' ( file:///media/data/recordings/workstations/20150701-1204-workstations.mjpeg )
+[0x960938] main input debug: Creating an input for '20150701-1204-workstations.mjpeg'
+[0x958cb8] main interface debug: looking for interface module: 1 candidate
+[0x958cb8] main interface debug: using interface module "globalhotkeys"
+[0x958cb8] main interface debug: TIMER module_need() : 0.626 ms - Total 0.626 ms / 1 intvls (Avg 0.626 ms)
+[0x7fe560004ca8] main interface debug: looking for interface module: 1 candidate
+[0x7fe560004ca8] dummy interface: using the dummy interface module...
+[0x7fe560004ca8] main interface debug: using interface module "dummy"
+[0x7fe560004ca8] main interface debug: TIMER module_need() : 0.181 ms - Total 0.181 ms / 1 intvls (Avg 0.181 ms)
+[0x957348] main playlist debug: processing request item: null, node: Playlist, skip: 0
+[0x957348] main playlist debug: rebuilding array of current - root Playlist
+[0x957348] main playlist debug: rebuild done - 1 items, index -1
+[0x957348] main playlist debug: starting playback of the new playlist item
+[0x957348] main playlist debug: resyncing on 20150701-1204-workstations.mjpeg
+[0x957348] main playlist debug: 20150701-1204-workstations.mjpeg is at 0
+[0x957348] main playlist debug: creating new input thread
+[0x948d78] main input debug: Creating an input for '20150701-1204-workstations.mjpeg'
+[0x948d78] main input debug: using timeshift granularity of 50 MiB, in path '/tmp'
+[0x948d78] main input debug: `file:///media/data/recordings/workstations/20150701-1204-workstations.mjpeg' gives access `file' demux `' path `/media/data/recordings/workstations/20150701-1204-workstations.mjpeg'
+[0x948d78] main input debug: creating demux: access='file' demux='' location='/media/data/recordings/workstations/20150701-1204-workstations.mjpeg' file='/media/data/recordings/workstations/20150701-1204-workstations.mjpeg'
+[0x7fe560006c28] main demux debug: looking for access_demux module: 3 candidates
+[0x7fe560006c28] main demux debug: no access_demux module matching "file" could be loaded
+[0x7fe560006c28] main demux debug: TIMER module_need() : 0.072 ms - Total 0.072 ms / 1 intvls (Avg 0.072 ms)
+[0x948d78] main input debug: creating access 'file' location='/media/data/recordings/workstations/20150701-1204-workstations.mjpeg', path='/media/data/recordings/workstations/20150701-1204-workstations.mjpeg'
+[0x157e7f8] main access debug: looking for access module: 2 candidates
+[0x157e7f8] filesystem access debug: opening file `/media/data/recordings/workstations/20150701-1204-workstations.mjpeg'
+[0x157e7f8] main access debug: using access module "filesystem"
+[0x157e7f8] main access debug: TIMER module_need() : 0.073 ms - Total 0.073 ms / 1 intvls (Avg 0.073 ms)
+[0x157ed88] main stream debug: Using stream method for AStream*
+[0x157ed88] main stream debug: starting pre-buffering
+[0x157ed88] main stream debug: received first data after 0 ms
+[0x157ed88] main stream debug: pre-buffering done 1024 bytes in 0s - 71428 KiB/s
+[0x157efe8] main stream debug: looking for stream_filter module: 7 candidates
+[0x157efe8] main stream debug: no stream_filter module matching "any" could be loaded
+[0x157efe8] main stream debug: TIMER module_need() : 0.066 ms - Total 0.066 ms / 1 intvls (Avg 0.066 ms)
+[0x157efe8] main stream debug: looking for stream_filter module: 1 candidate
+[0x157efe8] main stream debug: using stream_filter module "stream_filter_record"
+[0x157efe8] main stream debug: TIMER module_need() : 0.054 ms - Total 0.054 ms / 1 intvls (Avg 0.054 ms)
+[0x948d78] main input debug: creating demux: access='file' demux='' location='/media/data/recordings/workstations/20150701-1204-workstations.mjpeg' file='/media/data/recordings/workstations/20150701-1204-workstations.mjpeg'
+[0x157f258] main demux debug: looking for demux module: 54 candidates
+[0x157f258] mod demux debug: MOD validation failed (ext=mjpeg)
+[0x157f258] ts demux warning: lost synchro
+[0x157f258] ts demux debug: skipping 19 bytes of garbage
+[0x157f258] ts demux warning: lost synchro
+[0x157f258] ts demux debug: skipping 38 bytes of garbage
+[0x157f258] ts demux warning: lost synchro
+[0x157f258] ts demux debug: skipping 57 bytes of garbage
+[0x157f258] ts demux warning: lost synchro
+[0x157f258] ts demux debug: skipping 76 bytes of garbage
+[0x157f258] ts demux warning: lost synchro
+[0x157f258] ts demux debug: skipping 95 bytes of garbage
+[0x157f258] ts demux warning: lost synchro
+[0x157f258] ts demux debug: skipping 114 bytes of garbage
+[0x157f258] ts demux warning: lost synchro
+[0x157f258] ts demux debug: skipping 133 bytes of garbage
+[0x157f258] ts demux warning: lost synchro
+[0x157f258] ts demux debug: skipping 152 bytes of garbage
+[0x157f258] ts demux warning: lost synchro
+[0x157f258] ts demux debug: skipping 171 bytes of garbage
+[0x157f258] ts demux debug: PATCallBack called
+[0x157f258] ts demux debug: new PAT ts_id=44378 version=11 current_next=1
+[0x157f258] ts demux debug:   * number=1 pid=66
+[0x157f258] ts demux debug: PMTCallBack called
+[0x157f258] ts demux debug: new PMT program number=1 version=13 pid_pcr=68
+[0x157f258] ts demux debug:   * es pid=68 type=27 fcc=h264
+[0x948d78] main input debug: selecting program id=1
+[0x157e7f8] filesystem access warning: unimplemented query 4097 in control
+[0x157f258] main demux debug: using demux module "ts"
+[0x157f258] main demux debug: TIMER module_need() : 7.105 ms - Total 7.105 ms / 1 intvls (Avg 7.105 ms)
+[0x948d78] main input debug: looking for a subtitle file in /media/data/recordings/workstations/
+[0x957348] main playlist debug: no fetch required for (null) (art currently (null))
+[0x157c278] main decoder debug: looking for decoder module: 30 candidates
+[0x157c278] avcodec decoder debug: libavcodec initialized (interface 0x363b64)
+[0x157c278] avcodec decoder debug: trying to use direct rendering
+[0x157c278] avcodec decoder debug: allowing 4 thread(s) for decoding
+[0x157c278] avcodec decoder debug: ffmpeg codec (H264 - MPEG-4 AVC (part 10)) started
+[0x157c278] avcodec decoder debug: using frame thread mode with 4 threads
+[0x157c278] main decoder debug: using decoder module "avcodec"
+[0x157c278] main decoder debug: TIMER module_need() : 5.323 ms - Total 5.323 ms / 1 intvls (Avg 5.323 ms)
+[0xa08618] main packetizer debug: looking for packetizer module: 21 candidates
+[0xa08618] main packetizer debug: using packetizer module "packetizer_h264"
+[0xa08618] main packetizer debug: TIMER module_need() : 0.307 ms - Total 0.307 ms / 1 intvls (Avg 0.307 ms)
+[0x157f258] ts demux debug: DEMUX_SET_GROUP 0 (nil)
+[0x97c2f8] main demux meta debug: looking for meta reader module: 2 candidates
+[0x97c2f8] lua demux meta debug: Trying Lua scripts in /home/map7/.local/share/vlc/lua/meta/reader
+[0x97c2f8] lua demux meta debug: Trying Lua scripts in /usr/lib/vlc/lua/meta/reader
+[0x97c2f8] lua demux meta debug: Trying Lua playlist script /usr/lib/vlc/lua/meta/reader/filename.luac
+[0x97c2f8] lua demux meta debug: Trying Lua scripts in /usr/share/vlc/lua/meta/reader
+[0x97c2f8] main demux meta debug: no meta reader module matching "any" could be loaded
+[0x97c2f8] main demux meta debug: TIMER module_need() : 0.337 ms - Total 0.337 ms / 1 intvls (Avg 0.337 ms)
+[0x948d78] main input debug: `file:///media/data/recordings/workstations/20150701-1204-workstations.mjpeg' successfully opened
+[0x948d78] main input debug: Buffering 0%
+[0x948d78] main input debug: Buffering 24%
+[0xa08618] packetizer_h264 packetizer warning: waiting for SPS/PPS
+[0x948d78] main input debug: Buffering 49%
+[0xa08618] packetizer_h264 packetizer warning: waiting for SPS/PPS
+[0x948d78] main input debug: Buffering 71%
+[0xa08618] packetizer_h264 packetizer warning: waiting for SPS/PPS
+[0x948d78] main input debug: Buffering 96%
+[0xa08618] packetizer_h264 packetizer warning: waiting for SPS/PPS
+[0x948d78] main input debug: Stream buffering done (361 ms in 0 ms)
+[0x948d78] main input debug: Decoder buffering done in 0 ms
+[0xa08618] packetizer_h264 packetizer warning: waiting for SPS/PPS
+[0xa08618] packetizer_h264 packetizer warning: waiting for SPS/PPS
+[0xa08618] packetizer_h264 packetizer warning: waiting for SPS/PPS
+[0xa08618] packetizer_h264 packetizer warning: waiting for SPS/PPS
+[0xa08618] packetizer_h264 packetizer warning: waiting for SPS/PPS
+[0xa08618] packetizer_h264 packetizer warning: waiting for SPS/PPS
+[0xa08618] packetizer_h264 packetizer debug: found NAL_SPS (sps_id=0)
+[0xa08618] packetizer_h264 packetizer debug: found NAL_PPS (pps_id=0 sps_id=0)
+[0xc06128] main spu text debug: looking for text renderer module: 2 candidates
+[0xc06128] freetype spu text debug: Building font databases.
+[0xc06128] freetype spu text debug: Took 0 microseconds
+[0xc06128] freetype spu text debug: Using Serif Bold as font from file /usr/share/fonts/truetype/ttf-bitstream-vera/Vera.ttf
+[0xc06128] freetype spu text debug: using fontsize: 2
+[0xc06128] main spu text debug: using text renderer module "freetype"
+[0xc06128] main spu text debug: TIMER module_need() : 4.279 ms - Total 4.279 ms / 1 intvls (Avg 4.279 ms)
+[0xc07458] main scale debug: looking for video filter2 module: 18 candidates
+[0xc07458] swscale scale debug: 32x32 chroma: YUVA -> 16x16 chroma: RGBA with scaling using Bicubic (good quality)
+[0xc07458] main scale debug: using video filter2 module "swscale"
+[0xc07458] main scale debug: TIMER module_need() : 0.530 ms - Total 0.530 ms / 1 intvls (Avg 0.530 ms)
+[0xc092a8] main scale debug: looking for video filter2 module: 18 candidates
+[0xc092a8] yuvp scale debug: YUVP to YUVA converter
+[0xc092a8] main scale debug: using video filter2 module "yuvp"
+[0xc092a8] main scale debug: TIMER module_need() : 0.701 ms - Total 0.701 ms / 1 intvls (Avg 0.701 ms)
+[0xc04e68] main video output debug: Deinterlacing available
+[0xc04e68] main video output debug: deinterlace 0, mode blend, is_needed 0
+[0xc04e68] main video output debug: Opening vout display wrapper
+[0xc49c88] main vout display debug: looking for vout display module: 5 candidates
+[0xc4f8b8] main window debug: looking for vout window xid module: 3 candidates
+[0xc4f8b8] main window debug: using vout window xid module "xcb_window"
+[0xc4f8b8] main window debug: TIMER module_need() : 1.067 ms - Total 1.067 ms / 1 intvls (Avg 1.067 ms)
+[0xc53c98] main inhibit debug: looking for inhibit module: 2 candidates
+[0xc53c98] main inhibit debug: using inhibit module "xdg_screensaver"
+[0xc53c98] main inhibit debug: TIMER module_need() : 0.135 ms - Total 0.135 ms / 1 intvls (Avg 0.135 ms)
+[0xc53c98] xdg_screensaver inhibit debug: started xdg-screensaver (PID = 432)
+[0xc49c88] xcb_xv vout display debug: connected to X11.0 server
+[0xc49c88] xcb_xv vout display debug:  vendor : The X.Org Foundation
+[0xc49c88] xcb_xv vout display debug:  version: 11204000
+[0xc49c88] xcb_xv vout display debug: using screen 0xda
+[0xc49c88] xcb_xv vout display debug: using XVideo extension v2.2
+[0xc49c88] xcb_xv vout display error: no available XVideo adaptor
+[0xc04e68] main video output debug: Reusing previous vout window
+[0xc49c88] xcb_glx vout display debug: using GLX extension version 1.4
+[0xc49c88] xcb_glx vout display debug: using screen 0xda (number: 0)
+[0xc49c88] xcb_glx vout display error: no GLX frame buffer configurations
+[0xc04e68] main video output debug: Reusing previous vout window
+[0xc49c88] xcb_x11 vout display debug: connected to X11.0 server
+[0xc49c88] xcb_x11 vout display debug:  vendor : The X.Org Foundation
+[0xc49c88] xcb_x11 vout display debug:  version: 11204000
+[0xc49c88] xcb_x11 vout display debug: using screen 0xda
+[0xc49c88] xcb_x11 vout display debug: using X11 visual ID 0x24
+[0xc49c88] xcb_x11 vout display debug:  8 bits depth
+[0xc49c88] xcb_x11 vout display debug:  8 bits per pixel
+[0xc49c88] xcb_x11 vout display debug:  32 bits line pad
+[0xc49c88] xcb_x11 vout display debug: using X11 window 00400001
+[0xc49c88] xcb_x11 vout display debug: using X11 graphic context 00400002
+[0xc49c88] main vout display debug: VoutDisplayEvent 'fullscreen' 0
+[0xc49c88] main vout display debug: VoutDisplayEvent 'resize' 480x352 window
+[0xc49c88] main vout display debug: using vout display module "xcb_x11"
+[0xc49c88] main vout display debug: TIMER module_need() : 10.607 ms - Total 10.607 ms / 1 intvls (Avg 10.607 ms)
+[0xc49c88] main vout display debug: A filter to adapt decoder to display is needed
+[0xc4cc68] main filter debug: looking for video filter2 module: 18 candidates
+[swscaler @ 0xc9c840] No accelerated colorspace conversion found from yuv420p to bgr8.
+[0xc4cc68] swscale filter debug: 480x352 chroma: I420 -> 480x352 chroma: RGB8 with scaling using Bicubic (good quality)
+[0xc4cc68] main filter debug: using video filter2 module "swscale"
+[0xc4cc68] main filter debug: TIMER module_need() : 0.171 ms - Total 0.171 ms / 1 intvls (Avg 0.171 ms)
+[0xc49c88] main vout display debug: Filter 'Swscale' (0xc4cc68) appended to chain
+[0xc04e68] main video output debug: original format sz 480x352, of (0,0), vsz 480x352, 4cc I420, sar 1:1, msk r0x0 g0x0 b0x0
+[0xc04e68] main video output debug: Adding 'motiondetect' as interactive
+[0x1572e58] main filter debug: looking for video filter2 module: 1 candidate
+[0x1572e58] main filter debug: using video filter2 module "motiondetect"
+[0x1572e58] main filter debug: TIMER module_need() : 0.224 ms - Total 0.224 ms / 1 intvls (Avg 0.224 ms)
+[0xc04e68] main video output debug: Filter 'motiondetect' (0x1572e58) appended to chain
+[0xc06128] main spu text debug: removing module "freetype"
+[0xc06128] main spu text debug: looking for text renderer module: 2 candidates
+[0xc06128] freetype spu text debug: Building font databases.
+[0xc06128] freetype spu text debug: Took 0 microseconds
+[0xc06128] freetype spu text debug: Using Serif Bold as font from file /usr/share/fonts/truetype/ttf-bitstream-vera/Vera.ttf
+[0xc06128] freetype spu text debug: using fontsize: 2
+[0xc06128] main spu text debug: using text renderer module "freetype"
+[0xc06128] main spu text debug: TIMER module_need() : 0.857 ms - Total 0.857 ms / 1 intvls (Avg 0.857 ms)
+[0x157c278] avcodec decoder debug: using direct rendering
+[0x157c278] main decoder debug: End of video preroll
+[0xb41e08] main blend debug: looking for video blending module: 1 candidate
+[0xb41e08] main blend debug: using video blending module "blend"
+[0xb41e08] main blend debug: TIMER module_need() : 0.244 ms - Total 0.244 ms / 1 intvls (Avg 0.244 ms)
+[0xc04e68] main video output debug: Post-processing available
+[0xc49c88] xcb_x11 vout display debug: display is visible
+[0xc04e68] main video output debug: Filter 0x1572e58 removed from chain
+[0x1572e58] main filter debug: removing module "motiondetect"
+[0xc04e68] main video output debug: Adding 'motiondetect' as interactive
+[0x1572e58] main filter debug: looking for video filter2 module: 1 candidate
+[0x1572e58] main filter debug: using video filter2 module "motiondetect"
+[0x1572e58] main filter debug: TIMER module_need() : 0.398 ms - Total 0.398 ms / 1 intvls (Avg 0.398 ms)
+[0xc04e68] main video output debug: Filter 'motiondetect' (0x1572e58) appended to chain
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0xc04e68] main video output debug: picture might be displayed late (missing 0 ms)
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0xc49c88] main vout display debug: auto hiding mouse cursor
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 2 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 1 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x157f258] ts demux debug: eof ?
+[0x948d78] main input debug: EOF reached
+[0x948d78] main input debug: waiting decoder fifos to empty
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x948d78] main input debug: waiting decoder fifos to empty
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x948d78] main input debug: waiting decoder fifos to empty
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x948d78] main input debug: waiting decoder fifos to empty
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x1572e58] motiondetect filter debug: Counted 0 moving shapes.
+[0x957348] main playlist debug: finished input
+[0x157c278] main decoder debug: removing module "avcodec"
+[0x157c278] avcodec decoder debug: ffmpeg codec (H264 - MPEG-4 AVC (part 10)) stopped
+[0x157c278] main decoder debug: killing decoder fourcc `h264', 0 PES in FIFO
+[0x957348] main playlist debug: saving a free vout
+[0x957348] main playlist debug: reusing provided vout
+[0xa08618] main packetizer debug: removing module "packetizer_h264"
+[0x157f258] main demux debug: removing module "ts"
+[0x157f258] ts demux debug: pid list:
+[0x157f258] ts demux debug:   - pid[0] seen
+[0x157f258] ts demux debug:   - pid[66] seen
+[0x948d78] main input debug: Program doesn't contain anymore ES
+[0x157f258] ts demux debug:   - pid[68] seen
+[0x157f258] ts demux debug:   - pid[8191] seen
+[0x157efe8] main stream debug: removing module "stream_filter_record"
+[0x157e7f8] main access debug: removing module "filesystem"
+[0x957348] main playlist debug: dead input
+[0x957348] main playlist debug: changing item without a request (current 0/1)
+[0x957348] main playlist debug: nothing to play
+[0x957348] main playlist: end of playlist, exiting
+[0x7c8108] main libvlc debug: exiting
+[0xc04e68] main video output debug: destroying useless vout
+[0xb41e08] main blend debug: removing module "blend"
+[0x7c8108] main libvlc debug: deactivating the playlist
+[0x957348] main playlist debug: deactivating the playlist
+[0xc49c88] main vout display debug: Filter 0xc4cc68 removed from chain
+[0xc4cc68] main filter debug: removing module "swscale"
+[0xc49c88] main vout display debug: removing module "xcb_x11"
+[0xc04e68] main video output debug: Filter 0x1572e58 removed from chain
+[0x1572e58] main filter debug: removing module "motiondetect"
+[0xc53c98] main inhibit debug: removing module "xdg_screensaver"
+[0xc53c98] xdg_screensaver inhibit debug: started xdg-screensaver (PID = 1866)
+[0xc06128] main spu text debug: removing module "freetype"
+[0xc092a8] main scale debug: removing module "yuvp"
+[0xc07458] main scale debug: removing module "swscale"
+[0x960938] main playlist export debug: saving Media Library to file /home/map7/.local/share/vlc/ml.xspf
+[0x960938] main playlist export debug: looking for playlist export module: 1 candidate
+[0x960938] main playlist export debug: using playlist export module "export"
+[0x960938] main playlist export debug: TIMER module_need() : 0.262 ms - Total 0.262 ms / 1 intvls (Avg 0.262 ms)
+[0x960938] main playlist export debug: removing module "export"
+[0x957348] main playlist debug: playlist correctly deactivated
+[0x7c8108] main libvlc debug: removing all services discovery tasks
+[0x7c8108] main libvlc debug: removing all interfaces
+[0x7fe560004ca8] main interface debug: removing module "dummy"
+[0x958cb8] main interface debug: removing module "globalhotkeys"
+[0x94f0e8] main interface debug: removing module "inhibit"
+[0x948d78] main input debug: TIMER input launching for '20150701-1204-workstations.mjpeg' : 23.110 ms - Total 23.110 ms / 1 intvls (Avg 23.110 ms)
+[0x958038] main interface debug: removing module "hotkeys"
+[0x957348] main playlist debug: destroying
+[0x7c8108] main libvlc debug: TIMER ML Load : Total 3.342 ms / 1 intvls (Avg 3.342 ms)
+[0x7c8108] main libvlc debug: TIMER Items array build : Total 0.072 ms / 2 intvls (Avg 0.036 ms)
+[0x7c8108] main libvlc debug: TIMER Preparse run : Total 9.016 ms / 1 intvls (Avg 9.016 ms)
+[0x7c8108] main libvlc debug: TIMER ML Dump : Total 0.437 ms / 1 intvls (Avg 0.437 ms)
+[0x7c8108] main libvlc debug: removing stats
+[0x7c8108] main libvlc debug: removing module "memcpymmxext"

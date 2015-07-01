@@ -38,7 +38,7 @@ describe "record" do
     
     it "returns a full path with todays date" do
       path = @record.path(@configEye.config.cameras.first)
-      expect(path).to include("~/recordings/Reception/20150630-1005-Reception.mjpeg")
+      expect(path).to include("~/recordings/Reception/20150630-1005-Reception")
     end
   end
 
@@ -72,6 +72,26 @@ describe "record" do
       expect(File.exists?("/tmp/electric_eye.pid")).to equal(true)
       @record.stop_recordings("10000 10001 10002")
       expect(File.exists?("/tmp/electric_eye.pid")).to equal(false)
+    end
+  end
+
+  describe "#remove" do
+    before do
+      @path = "/tmp/electric_eye"
+      File.new("#{@path}.log", "w")
+      File.new("#{@path}.mjpeg", "w")
+    end
+
+    it "removes recording" do
+      expect(File.exist?("#{@path}.mjpeg")).to equal(true)
+      @record.remove(@path)
+      expect(File.exist?("#{@path}.mjpeg")).to equal(false)
+    end
+
+    it "removes log" do
+      expect(File.exist?("#{@path}.log")).to equal(true)
+      @record.remove(@path)
+      expect(File.exist?("#{@path}.log")).to equal(false)
     end
   end
 end

@@ -12,6 +12,8 @@ module ElectricEye
     end
 
     def start
+      @motion = Motion.new      # Create a new instance method to our motion library
+      
       pids = []
       # Step through each camera
       @configEye.config.cameras.each do |camera|
@@ -21,10 +23,11 @@ module ElectricEye
           stop_recording = false
           Signal.trap('INT') { stop_recording = true }
           until stop_recording
-            debug "Recording #{camera[:name]} to #{path(camera)}.mjpeg..."
-
+            path = "#{path(camera)}"
+            debug "Recording #{camera[:name]} to #{path}.mjpeg..."
+            
             # Set a recording going using vlc, hold onto the process till it's finished.
-            cmd="cvlc #{camera[:url]} --sout file/ts:#{path(camera)}.mjpeg"
+            cmd="cvlc #{camera[:url]} --sout file/ts:#{path}.mjpeg"
             pid,stdin,stdout,stderr=Open4::popen4(cmd)
 
             # Wait for a defined duration from the config file.
@@ -37,14 +40,34 @@ module ElectricEye
             
             Process.kill 9, pid # Stop current recording.
             Process.wait pid    # Wait around so we don't get Zombies
+
+            # Look for any motion
+            fork do
+              @motion.create_log(path) # Create the motion detection log file.
+
+              # Remove the log & recording if there is no motion
+              if @motion.detect("#{path}.log")
+                debug "Keep recording #{path}.mjpeg as it has MOTION"
+              else
+                remove(path)
+              end
+            end
           end
         end
+        
       end
 
       store_pids(pids)
       info "Cameras recording"
     end
 
+    # Remove a recording
+    def remove(path)
+      debug "Removing #{path}.mjpeg is TRASH"
+      File.delete("#{path}.log")
+      File.delete("#{path}.mjpeg")
+    end
+    
     def stop
       stop_recordings(get_pids) if File.exist?(PID_FILE)
     end
