@@ -19,7 +19,7 @@ module ElectricEye
 
     # Detect if there is motion given the results
     #
-    # results = an array of movementdetect lines from the log file
+    # path = the log file which is created by vlc with the movementdetect lines in.
     # threshold is how many objects are moving at once expressed by vlc.
     #
     def detect(path, threshold = 2)
