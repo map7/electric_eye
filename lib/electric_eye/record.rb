@@ -42,14 +42,14 @@ module ElectricEye
             Process.wait pid    # Wait around so we don't get Zombies
 
             # Look for any motion
-            Thread.new do
-              @motion.create_log(path) # Create the motion detection log file.
+            Thread.new(path) do |threadPath| 
+              @motion.create_log(threadPath) # Create the motion detection log file.
 
               # Remove the log & recording if there is no motion
-              if @motion.detect("#{path}.log")
-                debug "KEEP #{path}.mjpeg (motion)"
+              if @motion.detect("#{threadPath}.log")
+                debug "KEEP #{threadPath}.mjpeg (motion)"
               else
-                remove(path)
+                remove(threadPath)
               end
             end
           end
