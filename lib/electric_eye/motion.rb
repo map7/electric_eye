@@ -11,13 +11,22 @@ module ElectricEye
       results = []
       if File.exists?(path)
         File.readlines(path).each do |line|
-          if line =~ /motiondetect filter/
-            results.push line.chomp
-          end
+          results.push line.chomp if line =~ /motiondetect filter/
         end
       end
       results
-      
+    end
+
+    # Detect if there is motion given the results
+    def detect(results, threshold)
+      results.each do |line|
+        line.slice!(/\[.*\]/)   # Remove the number in brackets at the start of the string
+        movement = line.scan(/\d+/).first.to_i
+        if movement >= threshold
+          return true
+        end
+      end
+      return false
     end
   end
 end
