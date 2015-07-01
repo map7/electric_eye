@@ -71,6 +71,10 @@ Now start the daemon to start the recording process
 
 : electric_eye -s
 
+Start with debug messages
+
+: electric_eye -s --log-level=debug
+
 Stop all recordings
 
 : electric_eye -k

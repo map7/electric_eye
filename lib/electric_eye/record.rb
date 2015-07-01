@@ -47,7 +47,7 @@ module ElectricEye
 
               # Remove the log & recording if there is no motion
               if @motion.detect("#{path}.log")
-                debug "Keep recording #{path}.mjpeg as it has MOTION"
+                debug "KEEP #{path}.mjpeg (motion)"
               else
                 remove(path)
               end
@@ -63,7 +63,7 @@ module ElectricEye
 
     # Remove a recording
     def remove(path)
-      debug "Removing #{path}.mjpeg is TRASH"
+      debug "REMOVE #{path}.mjpeg (no motion)"
       File.delete("#{path}.log")
       File.delete("#{path}.mjpeg")
     end
