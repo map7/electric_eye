@@ -42,6 +42,7 @@ Enter your cameras into the JSON config file like so
 : ---
 : duration: 60
 : path: "/media/data/recordings/temp"
+: threshold: 2
 : cameras:
 : - :name: Reception
 :   :url: rtsp://<user>:<passwd>@<camera's ip>/live2.sdp
