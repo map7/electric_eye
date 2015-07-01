@@ -22,9 +22,7 @@ module ElectricEye
       results.each do |line|
         line.slice!(/\[.*\]/)   # Remove the number in brackets at the start of the string
         movement = line.scan(/\d+/).first.to_i
-        if movement >= threshold
-          return true
-        end
+        return true if movement >= threshold
       end
       return false
     end

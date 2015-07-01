@@ -31,7 +31,6 @@ describe "motion" do
     end
   end
 
-
   describe "#detect" do
     context "when there is movement" do
       before do
