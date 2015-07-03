@@ -167,6 +167,12 @@ Example for cleaning up reception after 60days at 7pm everynight.
 
 - [X] Create threshold as a variable
 
+- [ ] Allow motion detection to be turned on/off (default: off)
+
+- [ ] Threshold should be per camera or have inside & outside thresholds
+  There is a large difference in movement between indoor office cameras
+  and outdoor cameras. With wind and rain comes a lot of motion!
+
 - [ ] Add a feature to clean up old recordings using a "period" setting
   EG: 60 day period which could be set in the config file how many days you want to keep
   Then just call 'electric_eye --remove-recordings' within crontab
