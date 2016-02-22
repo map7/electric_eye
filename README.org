@@ -12,16 +12,15 @@ The problem was though VLC doesn't automate the recordings or handle the file st
 
 ** Requirements
 
-- VLC  - recording & motion detection
-- xvfb - Running virtual frame buffers (ie: desktops)
+- ffmpeg  - recording & motion detection
 - ruby
-- Linux (Tested on Debian 7)
+- Linux (Tested on Debian 7, Xubuntu 14.04)
 
 ** Installation
 
 Under linux install vlc xvfb & ruby
 
-: sudo apt-get install vlc xvfb ruby
+: sudo apt-get install ffmpeg ruby
 
 Add this line to your application's Gemfile:
 
