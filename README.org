@@ -166,11 +166,11 @@ Example for cleaning up reception after 60days at 7pm everynight.
 
 - [X] Create threshold as a variable
 
+- [ ] Swap over to using ffmpeg
+
+- [ ] Do inline motion detection (using fmmpeg)
+
 - [ ] Add a feature to clean up old recordings using a "period" setting
   EG: 60 day period which could be set in the config file how many days you want to keep
   Then just call 'electric_eye --remove-recordings' within crontab
   This would iterate over all my cameras and remove old recordings to keep a rolling set of days.
-
-- [ ] Allow different recording programs like raspicam
-
-- [ ] Do inline motion detection (using activevlc)
