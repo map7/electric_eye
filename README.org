@@ -12,16 +12,15 @@ The problem was though VLC doesn't automate the recordings or handle the file st
 
 ** Requirements
 
-- VLC  - recording & motion detection
-- xvfb - Running virtual frame buffers (ie: desktops)
+- ffmpeg  - recording & motion detection
 - ruby
-- Linux (Tested on Debian 7)
+- Linux (Tested on Debian 7, Xubuntu 14.04)
 
 ** Installation
 
 Under linux install vlc xvfb & ruby
 
-: sudo apt-get install vlc xvfb ruby
+: sudo apt-get install ffmpeg ruby
 
 Add this line to your application's Gemfile:
 
@@ -167,11 +166,11 @@ Example for cleaning up reception after 60days at 7pm everynight.
 
 - [X] Create threshold as a variable
 
+- [ ] Swap over to using ffmpeg
+
+- [ ] Do inline motion detection (using fmmpeg)
+
 - [ ] Add a feature to clean up old recordings using a "period" setting
   EG: 60 day period which could be set in the config file how many days you want to keep
   Then just call 'electric_eye --remove-recordings' within crontab
   This would iterate over all my cameras and remove old recordings to keep a rolling set of days.
-
-- [ ] Allow different recording programs like raspicam
-
-- [ ] Do inline motion detection (using activevlc)
