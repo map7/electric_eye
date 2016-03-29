@@ -75,6 +75,40 @@ describe "record" do
     end
   end
 
+  describe "#read_listfile" do
+    before do 
+      FakeFS.activate!
+    end
+
+    after do 
+      FakeFS.deactivate!
+    end
+
+    context "with a full file" do 
+      before do 
+        File.open("output.list", "w") do |file|
+          file.puts "file1.mjpeg"
+          file.puts "file2.mjpeg"
+        end
+      end
+
+      it "returns the last filename" do
+        @record.read_listfile("output.list").should eq("file2.mjpeg")
+      end    
+    end
+
+    context "with a empty file" do 
+      before do 
+        File.open("output.list", "w") do |file|
+        end
+      end
+
+      it "returns the last filename" do
+        @record.read_listfile("output.list").should eq(nil)
+      end    
+    end
+  end
+
   describe "#remove" do
     before do
       @path = "/tmp/electric_eye"

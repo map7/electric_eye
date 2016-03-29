@@ -30,6 +30,10 @@ class App
       @record.start
     elsif options[:k]           # Stop recordings
       @record.stop
+    elsif options[:m]           # Perform post motion detection
+      # NOTE: This happens automatically during recording so this option is only here for admins
+      # to perform the operation manually.
+      @record.start_motion_detection(options[:listfile])
     elsif options[:t]
       @configEye.set_threshold(options[:threshold])
     else
@@ -52,6 +56,7 @@ class App
   on("-p", "--path DIR", "Set recordings path")
   on("-s", "--start", "Start recordings")
   on("-k", "--stop", "Stop recordings")
+  on("-m", "--motion LISTFILE", "Post motion detection, pass in a list of video and it will process")
   on("-t", "--threshold LEVEL", "Set threshold for motion detection (default: 2)")
 
   # Arguments
