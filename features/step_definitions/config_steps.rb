@@ -2,7 +2,7 @@ require 'construct'
 require 'fileutils'
 
 Given(/^I have a camera called "([^"]*)"$/) do |arg1|
-  @config = Construct.new
+  @config = Construct.new({path: "/tmp/temp"})
   @config.cameras = [{name: "Reception", url: "http://thecamera.org"}]
   dir="#{ENV['HOME']}/.electric_eye"
   FileUtils.rm_r(dir) if Dir.exist?(dir)
