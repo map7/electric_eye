@@ -60,8 +60,8 @@ describe "record" do
     end
     
     it "calls kill" do
-      open4 = mock(Open4)
-      open4.stub!(:exitstatus).and_return(0)
+      open4 = double(Open4)
+      open4.stub(:exitstatus).and_return(0)
       
       Open4.should_receive(:popen4).with('kill -INT 10000 10001 10002').and_return(open4)
 
