@@ -148,6 +148,32 @@ describe "remove camera" do
   end
 end
 
+describe "set_wrap" do
+  include FakeFS::SpecHelpers
+
+  before do
+    @configEye = ConfigEye.new
+  end
+
+  context "when no wrap has been set" do
+    it "returns the default of 168 times" do
+      expect(@configEye.config.wrap).to equal(168)
+    end
+  end
+
+  context "when calling with -w 24" do
+    it "returns 24" do
+      @configEye.set_wrap(24)
+      expect(@configEye.config.wrap).to equal(24)
+    end
+
+    it "calls save" do
+      expect(@configEye).to receive(:save).once
+      @configEye.set_wrap(24)
+    end
+  end
+end
+
 describe "set_duration" do
   include FakeFS::SpecHelpers
 

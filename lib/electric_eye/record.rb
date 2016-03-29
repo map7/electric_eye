@@ -31,7 +31,7 @@ module ElectricEye
         # segment_time = how much time to record in each segment in seconds, ie: 3600 = 1hr
         # sgement_wrap = how many copies
         loglevel = "-loglevel panic" if logger.level >= 1
-        cmd="ffmpeg -f mjpeg -i #{camera[:url]} #{loglevel} -acodec copy -vcodec copy -y -f segment -segment_time 3600 -segment_wrap 168  #{path}%03d.mjpeg"
+        cmd="ffmpeg -f mjpeg -i #{camera[:url]} #{loglevel} -acodec copy -vcodec copy -y -f segment -segment_time #{@configEye.config.duration} -segment_wrap 168  #{path}%03d.mjpeg"
 
         # Run command and add to our pids to make it easy for electric_eye to clean up.
         pids << Process.spawn(cmd)

@@ -19,7 +19,8 @@ module ElectricEye
       if File.exist?(CONFIG_FILE)
         Construct.load File.read(CONFIG_FILE)
       else
-        Construct.new({duration: 600, path: '~/recordings', threshold: 2, cameras: []})
+        # Create a new file with defaults
+        Construct.new({duration: 600, wrap: 168, path: '~/recordings', threshold: 2, cameras: []})
       end
     end
 
@@ -55,6 +56,13 @@ module ElectricEye
     def list_cameras
       info "Cameras"
       tp @config.cameras, :name, :url => {width: 120}
+    end
+
+    # Set wrap
+    def set_wrap(wrap)
+      @config.wrap = wrap.to_i
+      save
+      info "Wrap set to #{wrap} files"
     end
 
     # Set duration
