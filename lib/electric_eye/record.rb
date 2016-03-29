@@ -15,46 +15,38 @@ module ElectricEye
       @motion = Motion.new      # Create a new instance method to our motion library
       
       pids = []
+
       # Step through each camera
       @configEye.config.cameras.each do |camera|
-        # Let's first record two 1minute videos of each camera.
-        # This will turn into a never ending loop until we stop the process.
-        pids << fork do
-          stop_recording = false
-          Signal.trap('INT') { stop_recording = true }
-          until stop_recording
-            path = "#{path(camera)}"
-            debug "Recording #{camera[:name]} to #{path}.mjpeg..."
-            
-            # Set a recording going using vlc, hold onto the process till it's finished.
-            cmd="cvlc #{camera[:url]} --sout file/ts:#{path}.mjpeg"
-            pid,stdin,stdout,stderr=Open4::popen4(cmd)
 
-            # Wait for a defined duration from the config file.
-            seconds = @configEye.config.duration
-            while(seconds > 0)
-              sleep 1
-              seconds -= 1
-              break if stop_recording
-            end
-            
-            Process.kill 9, pid # Stop current recording.
-            Process.wait pid    # Wait around so we don't get Zombies
-
-            # Look for any motion
-            Thread.new(path) do |threadPath| 
-              @motion.create_log(threadPath) # Create the motion detection log file.
-
-              # Remove the log & recording if there is no motion
-              if @motion.detect("#{threadPath}.log", @configEye.config.threshold)
-                debug "KEEP #{threadPath}.mjpeg (motion)"
-              else
-                remove(threadPath)
-              end
-            end
-          end
-        end
+        # Start the recording for each camera
+        stop_recording = false
+        Signal.trap('INT') { stop_recording = true }
         
+        # until stop_recording
+        path = "#{path(camera)}"
+        debug "Recording #{camera[:name]} to #{path}.mjpeg..."
+        
+        # Set a recording going using vlc, hold onto the process till it's finished.
+        # segment_time = how much time to record in each segment in seconds, ie: 3600 = 1hr
+        # sgement_wrap = how many copies
+        loglevel = "-loglevel panic" if logger.level >= 1
+        cmd="ffmpeg -f mjpeg -i #{camera[:url]} #{loglevel} -acodec copy -vcodec copy -y -f segment -segment_time 3600 -segment_wrap 168  #{path}%03d.mjpeg"
+
+        # Run command and add to our pids to make it easy for electric_eye to clean up.
+        pids << Process.spawn(cmd)
+
+        # # Look for any motion
+        # Thread.new(path) do |threadPath| 
+        #   @motion.create_log(threadPath) # Create the motion detection log file.
+
+        #   # Remove the log & recording if there is no motion
+        #   if @motion.detect("#{threadPath}.log", @configEye.config.threshold)
+        #     debug "KEEP #{threadPath}.mjpeg (motion)"
+        #   else
+        #     remove(threadPath)
+        #   end
+        # end
       end
 
       store_pids(pids)
