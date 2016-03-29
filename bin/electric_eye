@@ -22,6 +22,8 @@ class App
       @configEye.list_cameras
     elsif options[:d]           # Set duration
       @configEye.set_duration(options[:duration]) 
+    elsif options[:w]           # Set wrap
+      @configEye.set_wrap(options[:wrap]) 
     elsif options[:p]           # Set path
       @configEye.set_path(options[:path]) 
     elsif options[:s]           # Start recording
@@ -46,6 +48,7 @@ class App
   on("-r", "--remove", "Remove a camera")
   on("-l", "--list", "List cameras")
   on("-d", "--duration SECONDS", "Set recording duration in seconds (default: 600)")
+  on("-w", "--wrap FILES", "Set how many files to keep before wrapping (default: 168 at 1hr = 1week)")
   on("-p", "--path DIR", "Set recordings path")
   on("-s", "--start", "Start recordings")
   on("-k", "--stop", "Stop recordings")
