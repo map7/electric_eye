@@ -36,9 +36,9 @@ describe "record" do
       Timecop.return
     end
     
-    it "returns a full path with todays date" do
+    it "returns a full path" do
       path = @record.path(@configEye.config.cameras.first)
-      expect(path).to include("~/recordings/Reception/20150630-Reception")
+      expect(path).to include("~/recordings/Reception/Reception")
     end
   end
 

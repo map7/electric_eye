@@ -77,7 +77,7 @@ module ElectricEye
     def path(camera)
       dir = "#{@configEye.config.path}/#{camera[:name]}"
       FileUtils.mkdir_p(dir) unless Dir.exist?(dir)
-      "#{dir}/#{Time.now.strftime('%Y%m%d')}-#{camera[:name]}"
+      "#{dir}/#{camera[:name]}"
     end
 
     def initialize(configEye)
