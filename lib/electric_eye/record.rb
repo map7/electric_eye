@@ -41,8 +41,8 @@ module ElectricEye
         puts "before thread: #{path}"
         # threads << Thread.new(listfile) do |listfile|
         pids << fork do 
-          `echo "path: #{path}" >> #{listfile}.log`
-          start_motion_detection(path)
+          `echo "path: #{dir(camera)}" >> #{listfile}.log`
+          start_motion_detection(camera)
         end
         # end
       end
@@ -55,16 +55,31 @@ module ElectricEye
     end
 
     # Start motion detection
-    def start_motion_detection(path)
+    def start_motion_detection(camera)
       # Watch the ffmpeg segment list output file which will trigger the block within
       # where we can look at the last line in the file and perform post motion detection.
-      puts path
+      dir =dir(camera)
+      path = path(camera)
 
+      # # Works
+      # filewatcher = FileWatcher.new("#{path}*.mjpeg")
+      # filewatcher.watch{|f|
+      #   puts "Updated " + f
+      #   `echo "Update #{f}" >> #{path}.list.log`
+      # }
+
+      # Watch the directory & read from the list file
       filewatcher = FileWatcher.new("#{path}*.mjpeg")
-      filewatcher.watch{|f|
-        puts "Updated " + f
-        `echo "Update #{f}" >> #{path}.list.log`
-      }
+      filewatcher.watch do |f|
+        file = read_listfile("#{path}.list")
+        if file
+          info "Processing #{file}"
+          cmd="ffmpeg -i #{dir}/#{file} -vf \"select=gt(scene\\,0.003),setpts=N/(25*TB)\" #{dir}/#{file}-motion.mjpeg"
+
+          # Run command and add to our pids to make it easy for electric_eye to clean up.
+          Process.spawn(cmd)
+        end
+      end
       
       # thread = Thread.new(filewatcher){|fw|
       #   fw.watch{|f|
@@ -121,10 +136,14 @@ module ElectricEye
       File.open(PID_FILE, "r").gets # Get pids
     end
     
-    def path(camera)
+    def dir(camera)
       dir = "#{@configEye.config.path}/#{camera[:name]}"
       FileUtils.mkdir_p(dir) unless Dir.exist?(dir)
-      "#{dir}/#{camera[:name]}"
+      dir
+    end
+
+    def path(camera)
+      "#{dir(camera)}/#{camera[:name]}"
     end
 
     def initialize(configEye)

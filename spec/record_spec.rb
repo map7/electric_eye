@@ -27,6 +27,21 @@ describe "record" do
     end
   end
 
+  describe "#dir" do
+    before do
+      Timecop.freeze(Time.local(2015,06,30,10,05,0))
+    end
+
+    after do
+      Timecop.return
+    end
+    
+    it "returns a full dir" do
+      dir = @record.dir(@configEye.config.cameras.first)
+      expect(dir).to eq("~/recordings/Reception")
+    end
+  end
+
   describe "record_path" do
     before do
       Timecop.freeze(Time.local(2015,06,30,10,05,0))
@@ -38,7 +53,7 @@ describe "record" do
     
     it "returns a full path" do
       path = @record.path(@configEye.config.cameras.first)
-      expect(path).to include("~/recordings/Reception/Reception")
+      expect(path).to eq("~/recordings/Reception/Reception")
     end
   end
 
