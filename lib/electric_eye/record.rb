@@ -39,10 +39,12 @@ module ElectricEye
 
         # Start the motion detection for this camera
         puts "before thread: #{path}"
-        threads << Thread.new(listfile) do |listfile|
+        # threads << Thread.new(listfile) do |listfile|
+        pids << fork do 
           `echo "path: #{path}" >> #{listfile}.log`
           start_motion_detection(path)
         end
+        # end
       end
 
       store_pids(pids)
@@ -59,13 +61,18 @@ module ElectricEye
       puts path
 
       filewatcher = FileWatcher.new("#{path}*.mjpeg")
-      thread = Thread.new(filewatcher){|fw|
-        fw.watch{|f|
-          puts "Updated " + f
-          `echo "Update #{f}" >> #{path}.list.log`
-        }
+      filewatcher.watch{|f|
+        puts "Updated " + f
+        `echo "Update #{f}" >> #{path}.list.log`
       }
-      thread.join
+      
+      # thread = Thread.new(filewatcher){|fw|
+      #   fw.watch{|f|
+      #     puts "Updated " + f
+      #     `echo "Update #{f}" >> #{path}.list.log`
+      #   }
+      # }
+      # thread.join
 
       # filewatcher.watch do |listfile|
       #   # Signal.trap('INT') do
