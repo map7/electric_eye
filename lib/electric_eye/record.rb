@@ -61,7 +61,7 @@ module ElectricEye
       filewatcher.watch do |f|
         file = read_listfile("#{path}.list")
         if file
-          info "Processing #{file}"
+          debug "Processing #{file}"
           loglevel = "-loglevel panic" if logger.level >= 1
 
           # Run motion detection on the file, make sure that we output to a different file.
