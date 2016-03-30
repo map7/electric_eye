@@ -12,8 +12,9 @@ I started with VLC doing the recording up to 0.1.0 where I changed over to using
 
 ** Requirements
 
-- ffmpeg  - recording & motion detection
-- ruby
+- ffmpeg 3.x - recording & motion detection
+  We are using 3.x for it's reconnect features.
+- ruby 1.9.3 or above
 - Linux (Tested on Debian 7, Xubuntu 14.04)
 
 ** Installation
@@ -180,6 +181,9 @@ Example for cleaning up reception after 60days at 7pm everynight.
   EG: 60 day period which could be set in the config file how many days you want to keep
   Then just call 'electric_eye --remove-recordings' within crontab
   This would iterate over all my cameras and remove old recordings to keep a rolling set of days.
+
+- [ ] Adjust motion detection to date format
+  : <yyyymmdd>-<hhmm>-<camera name>.mpeg
 
 - [ ] Allow motion detection to be turned on/off (default: off)
 
