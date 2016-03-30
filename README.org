@@ -6,9 +6,9 @@ A network video recorder for multiple IP cameras using VLC.
 
 ** History
 
-I've been using Zoneminder & motion and these programs are either too large for my requirements (zoneminder) or don't work with the cameras I own (motion). What I did notice is all my cameras work through VLC with high resolution and VLC can record. 
+I've been using Zoneminder & motion and these programs are either too large for my requirements (zoneminder) or don't work with the cameras I own (motion). What I did notice is all my cameras work through VLC with high resolution and VLC can record.
 
-The problem was though VLC doesn't automate the recordings or handle the file structure nicely. This is where I started to think about creating an application which records from VLC and nicely sorts those recordings in directories by date & time.
+I started with VLC doing the recording up to 0.1.0 where I changed over to using ffmpeg instead.
 
 ** Requirements
 
@@ -40,7 +40,7 @@ Enter your cameras into the JSON config file like so
 
 : ---
 : duration: 60
-: path: "/media/data/recordings/temp"
+: path: "/media/data/recordings"
 : threshold: 2
 : cameras:
 : - :name: Reception
@@ -54,14 +54,15 @@ You should be able to view the URL through vlc before using this program.
 
 The recordings directory will end up with these directories
 
-: /media/data/recordings/reception/20150527
-: /media/data/recordings/kitchen/20150527
+: /media/data/recordings/reception
+: /media/data/recordings/kitchen
 
-Notice the date at the end of these paths, there will be one for each day. The contents within will be recordings which are done by default every 10minutes, example;
+Files will be numbered up to your wrap figure. The wrap figure determines when the recording program should start from zero again. EG: If you select you duration as 3600 seconds and a wrap figure of 168 then you get a rolling recording over a 1 week period which would be divided up into 1hr files.
 
-: 20150527-1020-reception.mjpeg
-: 20150527-1030-reception.mjpeg
-: 20150527-1040-reception.mjpeg
+: reception000.mjpeg
+: motion-reception000.mjpeg
+: reception001.mjpeg
+: motion-reception001.mjpeg
 
 The default is going to be 10 minute blocks, this can be overridden with the duration variable above in minutes.
 
@@ -87,6 +88,9 @@ Usage in development mode
 
 : bundle exec bin/electric_eye -h
 
+Debug mode
+
+: bundle exec bin/electric_eye -s --log-level=debug
 
 ** Start on boot
 
@@ -137,6 +141,8 @@ Replace johnsmith with your user where you have setup your camera profiles. NOTE
 
 ** Cleanup
 
+Optional - This was needed for versions prior to 0.1.0, now it is only a precaution as ffmpeg does clean up after itself.
+
 Cleaning up recordings. Put the following into your /etc/crontab per recording directory.
 
 : 00 19	* * *	root	/usr/bin/find <directory to recordings> -type f -mtime +<days> -exec rm {} \;
@@ -166,17 +172,17 @@ Example for cleaning up reception after 60days at 7pm everynight.
 
 - [X] Create threshold as a variable
 
-- [ ] Swap over to using ffmpeg
+- [X] Swap over to using ffmpeg
 
-- [ ] Do inline motion detection (using fmmpeg)
+- [X] Do post motion detection (using fmmpeg)
+
+- [X] Add a feature to clean up old recordings using a "period" setting (ffmpeg handles this)
+  EG: 60 day period which could be set in the config file how many days you want to keep
+  Then just call 'electric_eye --remove-recordings' within crontab
+  This would iterate over all my cameras and remove old recordings to keep a rolling set of days.
 
 - [ ] Allow motion detection to be turned on/off (default: off)
 
 - [ ] Threshold should be per camera or have inside & outside thresholds
   There is a large difference in movement between indoor office cameras
   and outdoor cameras. With wind and rain comes a lot of motion!
-
-- [ ] Add a feature to clean up old recordings using a "period" setting
-  EG: 60 day period which could be set in the config file how many days you want to keep
-  Then just call 'electric_eye --remove-recordings' within crontab
-  This would iterate over all my cameras and remove old recordings to keep a rolling set of days.
