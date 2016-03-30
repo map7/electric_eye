@@ -16,16 +16,9 @@ module ElectricEye
       @motion = Motion.new      # Create a new instance method to our motion library
       
       pids = []
+      threads = []
 
       # Start the recording for each camera
-      stop_recording = false
-
-      # Signal.trap('INT') do
-      #   stop_recording = true
-      #   Process.kill 9, ffmpeg_pid
-      #   Process.wait ffmpeg_pid
-      # end
-      
       # Step through each camera
       @configEye.config.cameras.each do |camera|
         
@@ -44,38 +37,55 @@ module ElectricEye
         info "Starting to record #{camera[:name]}"
         pids << Process.spawn(cmd)
 
-        # # Start the motion detection for this camera
-        # puts "before thread"
-        # Thread.new(listfile) do |listfile|
-        #   `echo "listfile: #{listfile}" >> #{listfile}.log`
-        #   start_motion_detection(listfile)
-        # end
+        # Start the motion detection for this camera
+        puts "before thread: #{path}"
+        threads << Thread.new(listfile) do |listfile|
+          `echo "path: #{path}" >> #{listfile}.log`
+          start_motion_detection(path)
+        end
       end
 
       store_pids(pids)
       info "Cameras recording"
+      info "wait..."
+      
+      threads.each{|thread| thread.join}
     end
 
     # Start motion detection
-    def start_motion_detection(listfile)
-      if File.exists?(listfile)
-        # Watch the ffmpeg segment list output file which will trigger the block within
-        # where we can look at the last line in the file and perform post motion detection.
-        FileWatcher.new(listfile).watch do |listfile|
-          `echo "listfile2: #{listfile}" >> #{listfile}.log`
-          # Get last line
-          file = read_listfile(listfile)
+    def start_motion_detection(path)
+      # Watch the ffmpeg segment list output file which will trigger the block within
+      # where we can look at the last line in the file and perform post motion detection.
+      puts path
 
-          `echo "file: #{file}" >> #{listfile}.log`
-          # Run post motion detection
-          if file
-            cmd="ffmpeg -i #{file} -vf \"select=gt(scene\,0.003),setpts=N/(25*TB)\" #{file}-motion.mjpeg"
-            `echo "cmd: #{cmd}" >> #{listfile}.log`
-            # Run command and add to our pids to make it easy for electric_eye to clean up.
-            # Process.spawn(cmd)
-          end
-        end
-      end
+      filewatcher = FileWatcher.new("#{path}*.mjpeg")
+      thread = Thread.new(filewatcher){|fw|
+        fw.watch{|f|
+          puts "Updated " + f
+          `echo "Update #{f}" >> #{path}.list.log`
+        }
+      }
+      thread.join
+
+      # filewatcher.watch do |listfile|
+      #   # Signal.trap('INT') do
+      #   #   puts "Finalize filewatcher"
+      #   #   filewatcher.finalize
+      #   # end
+      #   `echo "listfile2: #{listfile}" >> #{listfile}.log`
+      #   puts "WITHIN: #{listfile}"
+      #   # # Get last line
+      #   # file = read_listfile(listfile)
+
+      #   # `echo "file: #{file}" >> #{listfile}.log`
+      #   # # Run post motion detection
+      #   # if file
+      #   #   cmd="ffmpeg -i #{file} -vf \"select=gt(scene\,0.003),setpts=N/(25*TB)\" #{file}-motion.mjpeg"
+      #   #   `echo "cmd: #{cmd}" >> #{listfile}.log`
+      #   #   # Run command and add to our pids to make it easy for electric_eye to clean up.
+      #   #   # Process.spawn(cmd)
+      #   # end
+      # end
     end
 
     def read_listfile(listfile)
