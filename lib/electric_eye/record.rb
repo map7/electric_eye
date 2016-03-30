@@ -23,13 +23,13 @@ module ElectricEye
         # until stop_recording
         path = "#{path(camera)}"
         listfile = "#{path}.list"
-        debug "Recording #{camera[:name]} to #{path}.mjpeg..."
+        debug "Recording #{camera[:name]} to #{path}.mpeg..."
         
         # Set a recording going using vlc, hold onto the process till it's finished.
         # segment_time = how much time to record in each segment in seconds, ie: 3600 = 1hr
         # sgement_wrap = how many copies
         loglevel = "-loglevel panic" if logger.level >= 1
-        cmd="ffmpeg -f mjpeg -i #{camera[:url]} #{loglevel} -acodec copy -vcodec copy -y -f segment -segment_list #{listfile} -segment_time #{@configEye.config.duration} -segment_wrap #{@configEye.config.wrap}  #{path}%03d.mjpeg"
+        cmd="ffmpeg -f mjpeg -i #{camera[:url]} #{loglevel} -acodec copy -vcodec copy -y -f segment -segment_list #{listfile} -segment_time #{@configEye.config.duration} -segment_wrap #{@configEye.config.wrap}  #{path}%03d.mpeg"
 
         # Run command and add to our pids to make it easy for electric_eye to clean up.
         info "Starting to record #{camera[:name]}"
@@ -52,7 +52,7 @@ module ElectricEye
       path = path(camera)
 
       # Watch the directory & read from the list file
-      filewatcher = FileWatcher.new("#{path}*.mjpeg")
+      filewatcher = FileWatcher.new("#{path}*.mpeg")
       filewatcher.watch do |f|
         file = read_listfile("#{path}.list")
         if file
@@ -76,9 +76,9 @@ module ElectricEye
 
     # Remove a recording
     def remove(path)
-      debug "REMOVE #{path}.mjpeg (no motion)"
+      debug "REMOVE #{path}.mpeg (no motion)"
       File.delete("#{path}.log")
-      File.delete("#{path}.mjpeg")
+      File.delete("#{path}.mpeg")
     end
     
     def stop
