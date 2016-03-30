@@ -58,15 +58,9 @@ module ElectricEye
     def start_motion_detection(camera)
       # Watch the ffmpeg segment list output file which will trigger the block within
       # where we can look at the last line in the file and perform post motion detection.
+
       dir =dir(camera)
       path = path(camera)
-
-      # # Works
-      # filewatcher = FileWatcher.new("#{path}*.mjpeg")
-      # filewatcher.watch{|f|
-      #   puts "Updated " + f
-      #   `echo "Update #{f}" >> #{path}.list.log`
-      # }
 
       # Watch the directory & read from the list file
       filewatcher = FileWatcher.new("#{path}*.mjpeg")
@@ -80,36 +74,9 @@ module ElectricEye
           Process.spawn(cmd)
         end
       end
-      
-      # thread = Thread.new(filewatcher){|fw|
-      #   fw.watch{|f|
-      #     puts "Updated " + f
-      #     `echo "Update #{f}" >> #{path}.list.log`
-      #   }
-      # }
-      # thread.join
-
-      # filewatcher.watch do |listfile|
-      #   # Signal.trap('INT') do
-      #   #   puts "Finalize filewatcher"
-      #   #   filewatcher.finalize
-      #   # end
-      #   `echo "listfile2: #{listfile}" >> #{listfile}.log`
-      #   puts "WITHIN: #{listfile}"
-      #   # # Get last line
-      #   # file = read_listfile(listfile)
-
-      #   # `echo "file: #{file}" >> #{listfile}.log`
-      #   # # Run post motion detection
-      #   # if file
-      #   #   cmd="ffmpeg -i #{file} -vf \"select=gt(scene\,0.003),setpts=N/(25*TB)\" #{file}-motion.mjpeg"
-      #   #   `echo "cmd: #{cmd}" >> #{listfile}.log`
-      #   #   # Run command and add to our pids to make it easy for electric_eye to clean up.
-      #   #   # Process.spawn(cmd)
-      #   # end
-      # end
     end
 
+    # Read the last line from the list file.
     def read_listfile(listfile)
       lines = File.open(listfile).readlines
       lines.last.chomp! unless lines.length == 0
