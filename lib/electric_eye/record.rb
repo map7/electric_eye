@@ -16,12 +16,10 @@ module ElectricEye
       @motion = Motion.new      # Create a new instance method to our motion library
       
       pids = []
-      threads = []
-
       # Start the recording for each camera
       # Step through each camera
       @configEye.config.cameras.each do |camera|
-        
+
         # until stop_recording
         path = "#{path(camera)}"
         listfile = "#{path}.list"
@@ -39,19 +37,15 @@ module ElectricEye
 
         # Start the motion detection for this camera
         puts "before thread: #{path}"
-        # threads << Thread.new(listfile) do |listfile|
+
         pids << fork do 
           `echo "path: #{dir(camera)}" >> #{listfile}.log`
           start_motion_detection(camera)
         end
-        # end
       end
 
       store_pids(pids)
       info "Cameras recording"
-      info "wait..."
-      
-      threads.each{|thread| thread.join}
     end
 
     # Start motion detection
@@ -68,7 +62,10 @@ module ElectricEye
         file = read_listfile("#{path}.list")
         if file
           info "Processing #{file}"
-          cmd="ffmpeg -i #{dir}/#{file} -vf \"select=gt(scene\\,0.003),setpts=N/(25*TB)\" #{dir}/#{file}-motion.mjpeg"
+          loglevel = "-loglevel panic" if logger.level >= 1
+
+          # Run motion detection on the file, make sure that we output to a different file.
+          cmd="ffmpeg -i #{dir}/#{file} #{loglevel} -y -vf \"select=gt(scene\\,0.003),setpts=N/(25*TB)\" #{dir}/motion-#{file}"
 
           # Run command and add to our pids to make it easy for electric_eye to clean up.
           Process.spawn(cmd)
