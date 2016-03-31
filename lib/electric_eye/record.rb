@@ -29,7 +29,9 @@ module ElectricEye
         # segment_time = how much time to record in each segment in seconds, ie: 3600 = 1hr
         # sgement_wrap = how many copies
         loglevel = "-loglevel panic" if logger.level >= 1
-        cmd="ffmpeg -f mjpeg -i #{camera[:url]} #{loglevel} -acodec copy -vcodec copy -y -f segment -segment_list #{listfile} -segment_time #{@configEye.config.duration} -segment_wrap #{@configEye.config.wrap}  #{path}%03d.mpeg"
+        # cmd="ffmpeg -f mjpeg -i #{camera[:url]} #{loglevel} -acodec copy -vcodec copy -y -f segment -segment_list #{listfile} -segment_time #{@configEye.config.duration} -segment_wrap #{@configEye.config.wrap}  #{path}%03d.mpeg"
+
+        cmd="/home/xbmc/src/ffmpeg-3.0.1/ffmpeg -i #{camera[:url]} #{loglevel} -c copy -f segment -segment_list #{listfile} -segment_time #{@configEye.config.duration} -segment_wrap #{@configEye.config.wrap} -y -reconnect 1 -reconnect_at_eof 1 -reconnect_streamed 1 -reconnect_delay_max 300 #{path}%03d.mjpeg"
 
         # Run command and add to our pids to make it easy for electric_eye to clean up.
         info "Starting to record #{camera[:name]}"
@@ -52,7 +54,7 @@ module ElectricEye
       path = path(camera)
 
       # Watch the directory & read from the list file
-      filewatcher = FileWatcher.new("#{path}*.mpeg")
+      filewatcher = FileWatcher.new("#{path}*.mjpeg")
       filewatcher.watch do |f|
         file = read_listfile("#{path}.list")
         if file
@@ -60,7 +62,7 @@ module ElectricEye
 
           # Run motion detection on the file, make sure that we output to a different file.
           loglevel = "-loglevel panic" if logger.level >= 1
-          cmd="ffmpeg -i #{dir}/#{file} #{loglevel} -y -vf \"select=gt(scene\\,0.003),setpts=N/(25*TB)\" #{dir}/motion-#{file}"
+          cmd="ffmpeg -i #{dir}/#{date_filename} #{loglevel} -y -vf \"select=gt(scene\\,0.003),setpts=N/(25*TB)\" #{dir}/motion-#{file}"
 
           # Run command and add to our pids to make it easy for electric_eye to clean up.
           Process.spawn(cmd)
@@ -74,13 +76,6 @@ module ElectricEye
       lines.last.chomp! unless lines.length == 0
     end
 
-    # Remove a recording
-    def remove(path)
-      debug "REMOVE #{path}.mpeg (no motion)"
-      File.delete("#{path}.log")
-      File.delete("#{path}.mpeg")
-    end
-    
     def stop
       stop_recordings(get_pids) if File.exist?(PID_FILE)
     end
@@ -99,6 +94,10 @@ module ElectricEye
       dir = "#{@configEye.config.path}/#{camera[:name]}"
       FileUtils.mkdir_p(dir) unless Dir.exist?(dir)
       dir
+    end
+
+    def date_filename(camera)
+      "#{Time.now.strftime('%Y%m%d-%H%M')}-#{camera[:name]}"
     end
 
     def path(camera)

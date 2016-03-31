@@ -27,7 +27,7 @@ describe "record" do
     end
   end
 
-  describe "#dir" do
+  describe "#date_filename" do
     before do
       Timecop.freeze(Time.local(2015,06,30,10,05,0))
     end
@@ -36,6 +36,13 @@ describe "record" do
       Timecop.return
     end
     
+    it "returns a filename with date" do
+      filename = @record.date_filename(@configEye.config.cameras.first)
+      expect(filename).to eq("20150630-1005-Reception")
+    end
+  end
+
+  describe "#dir" do
     it "returns a full dir" do
       dir = @record.dir(@configEye.config.cameras.first)
       expect(dir).to eq("~/recordings/Reception")
@@ -43,14 +50,6 @@ describe "record" do
   end
 
   describe "record_path" do
-    before do
-      Timecop.freeze(Time.local(2015,06,30,10,05,0))
-    end
-
-    after do
-      Timecop.return
-    end
-    
     it "returns a full path" do
       path = @record.path(@configEye.config.cameras.first)
       expect(path).to eq("~/recordings/Reception/Reception")
@@ -121,26 +120,6 @@ describe "record" do
       it "returns the last filename" do
         @record.read_listfile("output.list").should eq(nil)
       end    
-    end
-  end
-
-  describe "#remove" do
-    before do
-      @path = "/tmp/electric_eye"
-      File.new("#{@path}.log", "w")
-      File.new("#{@path}.mjpeg", "w")
-    end
-
-    it "removes recording" do
-      expect(File.exist?("#{@path}.mjpeg")).to equal(true)
-      @record.remove(@path)
-      expect(File.exist?("#{@path}.mjpeg")).to equal(false)
-    end
-
-    it "removes log" do
-      expect(File.exist?("#{@path}.log")).to equal(true)
-      @record.remove(@path)
-      expect(File.exist?("#{@path}.log")).to equal(false)
     end
   end
 end

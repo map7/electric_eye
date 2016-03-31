@@ -67,6 +67,10 @@ Files will be numbered up to your wrap figure. The wrap figure determines when t
 
 The default is going to be 10 minute blocks, this can be overridden with the duration variable above in minutes.
 
+** Rebooting cameras
+
+Some people reboot their cameras everynight. This does not work well with electric eye at the moment. As a work around you have to stop and start electric eye in your crontab.
+
 ** Usage
 
 First make sure you add your cameras
