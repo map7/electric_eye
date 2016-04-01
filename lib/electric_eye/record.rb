@@ -62,7 +62,8 @@ module ElectricEye
 
           # Run motion detection on the file, make sure that we output to a different file.
           loglevel = "-loglevel panic" if logger.level >= 1
-          cmd="ffmpeg -i #{dir}/#{date_filename} #{loglevel} -y -vf \"select=gt(scene\\,0.003),setpts=N/(25*TB)\" #{dir}/motion-#{file}"
+          cmd="ffmpeg -i #{dir}/#{file} #{loglevel} -y -vf \"select=gt(scene\\,0.003),setpts=N/(25*TB)\" #{dir}/#{date_filename(camera)}.mpeg"
+          puts cmd
 
           # Run command and add to our pids to make it easy for electric_eye to clean up.
           Process.spawn(cmd)
