@@ -38,7 +38,7 @@ describe "record" do
     
     it "returns a filename with date" do
       filename = @record.date_filename(@configEye.config.cameras.first)
-      expect(filename).to eq("20150630-1005-Reception")
+      expect(filename).to eq("20150630-100500-Reception")
     end
   end
 
