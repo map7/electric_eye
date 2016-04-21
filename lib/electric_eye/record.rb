@@ -13,7 +13,7 @@ module ElectricEye
     end
 
     def start
-      @motion = Motion.new      # Create a new instance method to our motion library
+      # @motion = Motion.new      # Create a new instance method to our motion library
       
       pids = []
       # Start the recording for each camera
