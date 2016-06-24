@@ -29,9 +29,9 @@ module ElectricEye
         # segment_time = how much time to record in each segment in seconds, ie: 3600 = 1hr
         # sgement_wrap = how many copies
         loglevel = "-loglevel panic" if logger.level >= 1
-        # cmd="ffmpeg -f mjpeg -i #{camera[:url]} #{loglevel} -acodec copy -vcodec copy -y -f segment -segment_list #{listfile} -segment_time #{@configEye.config.duration} -segment_wrap #{@configEye.config.wrap}  #{path}%03d.mpeg"
 
-        cmd="/home/xbmc/src/ffmpeg-3.0.1/ffmpeg -i #{camera[:url]} #{loglevel} -c copy -f segment -segment_list #{listfile} -segment_time #{@configEye.config.duration} -segment_wrap #{@configEye.config.wrap} -y -reconnect 1 -reconnect_at_eof 1 -reconnect_streamed 1 -reconnect_delay_max 300 #{path}%03d.mjpeg"
+        # ffmpeg 3.0.1 used
+        cmd="ffmpeg -i #{camera[:url]} #{loglevel} -c copy -f segment -segment_list #{listfile} -segment_time #{@configEye.config.duration} -segment_wrap #{@configEye.config.wrap} -y -reconnect 1 -reconnect_at_eof 1 -reconnect_streamed 1 -reconnect_delay_max 300 #{path}%03d.mjpeg"
 
         # Run command and add to our pids to make it easy for electric_eye to clean up.
         info "Starting to record #{camera[:name]}"
