@@ -7,6 +7,13 @@ module ElectricEye
   class Record
 
     include Methadone::CLILogging
+
+    def ffmpeg_bin
+      # Allow overriding the location of the ffmpeg bin if you require.
+      # We use special features of ffmpeg 3.0 so you might want to compile this in a separate directory
+      # for instance /opt/ffmpeg_3.0 would be a nice location.
+      ENV['ffmpeg_bin'] || 'ffmpeg'
+    end
     
     def store_pids(pids = [])
       File.open(PID_FILE, "w") { |file| file.write pids.join(" ") }
@@ -31,7 +38,7 @@ module ElectricEye
         loglevel = "-loglevel panic" if logger.level >= 1
 
         # ffmpeg 3.0.1 used
-        cmd="ffmpeg -i #{camera[:url]} #{loglevel} -c copy -f segment -segment_list #{listfile} -segment_time #{@configEye.config.duration} -segment_wrap #{@configEye.config.wrap} -y -reconnect 1 -reconnect_at_eof 1 -reconnect_streamed 1 -reconnect_delay_max 300 #{path}%03d.mjpeg"
+        cmd="#{ffmpeg_bin} -i #{camera[:url]} #{loglevel} -c copy -f segment -segment_list #{listfile} -segment_time #{@configEye.config.duration} -segment_wrap #{@configEye.config.wrap} -y -reconnect 1 -reconnect_at_eof 1 -reconnect_streamed 1 -reconnect_delay_max 300 #{path}%03d.mjpeg"
 
         # Run command and add to our pids to make it easy for electric_eye to clean up.
         info "Starting to record #{camera[:name]}"
@@ -62,7 +69,7 @@ module ElectricEye
 
           # Run motion detection on the file, make sure that we output to a different file.
           loglevel = "-loglevel panic" if logger.level >= 1
-          cmd="ffmpeg -i #{dir}/#{file} #{loglevel} -y -vf \"select=gt(scene\\,0.003),setpts=N/(25*TB)\" #{dir}/#{date_filename(camera)}.mpeg"
+          cmd="#{ffmpeg_bin} -i #{dir}/#{file} #{loglevel} -y -vf \"select=gt(scene\\,0.003),setpts=N/(25*TB)\" #{dir}/#{date_filename(camera)}.mpeg"
 
           # Run command and add to our pids to make it easy for electric_eye to clean up.
           Process.spawn(cmd)
