@@ -59,18 +59,25 @@ module ElectricEye
 
       dir =dir(camera)
       path = path(camera)
+      output = "#{dir}/#{date_filename(camera)}.mpeg"
 
       # Watch the directory & read from the list file
       filewatcher = FileWatcher.new("#{path}*.mjpeg")
       filewatcher.watch do |f|
         file = read_listfile("#{path}.list")
-        if file
+        if file and !File.exists?(output)
           debug "Processing #{file}"
+          
 
           # Run motion detection on the file, make sure that we output to a different file.
           loglevel = "-loglevel panic" if logger.level >= 1
-          cmd="#{ffmpeg_bin} -i #{dir}/#{file} #{loglevel} -y -vf \"select=gt(scene\\,0.003),setpts=N/(25*TB)\" #{dir}/#{date_filename(camera)}.mpeg"
 
+          if File.exists?("/opt/ffmpeg3/bin/ffmpeg")
+            cmd="/opt/ffmpeg3/bin/ffmpeg -i #{dir}/#{file} #{loglevel} -y -vf \"select=gt(scene\\,0.003),setpts=N/(25*TB)\" #{output}"
+          else
+            cmd="#{ffmpeg_bin} -i #{dir}/#{file} #{loglevel} -y -vf \"select=gt(scene\\,0.003),setpts=N/(25*TB)\" #{output}"
+          end
+          
           # Run command and add to our pids to make it easy for electric_eye to clean up.
           Process.spawn(cmd)
         end
