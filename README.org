@@ -34,7 +34,6 @@ And then execute:
 Or install it yourself as:
 
 : $ gem install electric_eye
-
 ** Configuration
 
 Enter your cameras into the JSON config file like so
@@ -66,6 +65,11 @@ Files will be numbered up to your wrap figure. The wrap figure determines when t
 : motion-reception001.mjpeg
 
 The default is going to be 10 minute blocks, this can be overridden with the duration variable above in minutes.
+
+** Configure ffmpeg location
+
+Add the following to your ~/.bashrc file pointing it to your ffmpeg location
+: export FFMPEG_BIN="/opt/ffmpeg-3.0.1/ffmpeg"
 
 ** Rebooting cameras
 
