@@ -12,7 +12,7 @@ module ElectricEye
       # Allow overriding the location of the ffmpeg bin if you require.
       # We use special features of ffmpeg 3.0 so you might want to compile this in a separate directory
       # for instance /opt/ffmpeg_3.0 would be a nice location.
-      ENV['ffmpeg_bin'] || 'ffmpeg'
+      ENV['FFMPEG_BIN'] || 'ffmpeg'
     end
     
     def store_pids(pids = [])
