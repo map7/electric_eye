@@ -69,7 +69,13 @@ The default is going to be 10 minute blocks, this can be overridden with the dur
 ** Configure ffmpeg location
 
 Add the following to your ~/.bashrc file pointing it to your ffmpeg location
-: export FFMPEG_BIN="/opt/ffmpeg-3.0.1/ffmpeg"
+: export FFMPEG_BIN="/opt/ffmpeg3/ffmpeg"
+
+To compile ffmpeg 3 into there do the following
+: ./configure --prefix=/opt/ffmpeg3
+: make -j4
+: sudo make install
+
 
 ** Rebooting cameras
 
